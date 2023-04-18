@@ -15,3 +15,12 @@ php bin/console make:migration
 ```shell
 php bin/console doctrine:migrations:migrate
 ```
+
+```shell
+php bin/console make:fixture
+```
+
+```shell
+php bin/console doctrine:fixtures:load
+```
+```shell
