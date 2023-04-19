@@ -37,7 +37,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
        $trick1= new Trick();
        $trick1->setNameTrick($this->faker->title)
         ->setDescription($this->faker->paragraph)
-        ->setCreationDate($this->faker->dateTime)
+        ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
         ->setGroupTrick($groupeEasy)
         ->setUser($user1);
        $manager->persist($trick1);
@@ -46,7 +46,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $trick2= new Trick();
         $trick2->setNameTrick($this->faker->title)
             ->setDescription($this->faker->paragraph)
-            ->setCreationDate($this->faker->dateTime)
+            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
             ->setUser($user1);
         $manager->persist($trick2);
@@ -55,7 +55,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $trick3= new Trick();
         $trick3->setNameTrick($this->faker->title)
             ->setDescription($this->faker->paragraph)
-            ->setCreationDate($this->faker->dateTime)
+            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
             ->setUser($user2);
         $manager->persist($trick3);
@@ -64,7 +64,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $trick4= new Trick();
         $trick4->setNameTrick($this->faker->title)
             ->setDescription($this->faker->paragraph)
-            ->setCreationDate($this->faker->dateTime)
+            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
             ->setUser($user3);
         $manager->persist($trick4);
@@ -73,7 +73,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $trick5= new Trick();
         $trick5->setNameTrick($this->faker->title)
             ->setDescription($this->faker->paragraph)
-            ->setCreationDate($this->faker->dateTime)
+            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
             ->setUser($user4);
         $manager->persist($trick5);
@@ -82,7 +82,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $trick6= new Trick();
         $trick6->setNameTrick($this->faker->title)
             ->setDescription($this->faker->paragraph)
-            ->setCreationDate($this->faker->dateTime)
+            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
             ->setUser($user3);
         $manager->persist($trick6);

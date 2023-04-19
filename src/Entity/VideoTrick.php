@@ -20,11 +20,11 @@ class VideoTrick
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateAdded = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
-    private ?\DateTimeImmutable $mainVideo = null;
+    #[ORM\Column(nullable: true)]
+    private ?bool $mainVideo = null;
 
     #[ORM\ManyToOne(inversedBy: 'videoTricks')]
-    private ?Trick $Trick = null;
+    private ?Trick $trick = null;
 
     #[ORM\ManyToOne(inversedBy: 'videoTricks')]
     #[ORM\JoinColumn(nullable: false)]
@@ -59,12 +59,12 @@ class VideoTrick
         return $this;
     }
 
-    public function getMainVideo(): ?\DateTimeImmutable
+    public function isMainPhoto(): ?bool
     {
         return $this->mainVideo;
     }
 
-    public function setMainVideo(\DateTimeImmutable $mainVideo): self
+    public function setMainVideo(?bool $mainVideo): self
     {
         $this->mainVideo = $mainVideo;
 
@@ -73,12 +73,12 @@ class VideoTrick
 
     public function getTrick(): ?Trick
     {
-        return $this->Trick;
+        return $this->trick;
     }
 
-    public function setTrick(?Trick $Trick): self
+    public function setTrick(?Trick $trick): self
     {
-        $this->Trick = $Trick;
+        $this->trick = $trick;
 
         return $this;
     }

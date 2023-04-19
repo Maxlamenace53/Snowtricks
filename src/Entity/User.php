@@ -42,13 +42,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeInterface $registrationDate = null;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Trick::class)]
-    private Collection $Trick;
+    private Collection $tricks;
 
-    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
     private Collection $comments;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: PhotoTrick::class)]
@@ -62,7 +62,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->Trick = new ArrayCollection();
+        $this->tricks = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->photoTricks = new ArrayCollection();
         $this->videoTricks = new ArrayCollection();
@@ -201,15 +201,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Trick>
      */
-    public function getTrick(): Collection
+    public function getTricks(): Collection
     {
-        return $this->Trick;
+        return $this->tricks;
     }
 
     public function addTrick(Trick $trick): self
     {
-        if (!$this->Trick->contains($trick)) {
-            $this->Trick->add($trick);
+        if (!$this->tricks->contains($trick)) {
+            $this->tricks->add($trick);
             $trick->setUser($this);
         }
 
@@ -218,7 +218,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeTrick(Trick $trick): self
     {
-        if ($this->Trick->removeElement($trick)) {
+        if ($this->tricks->removeElement($trick)) {
             // set the owning side to null (unless already changed)
             if ($trick->getUser() === $this) {
                 $trick->setUser(null);

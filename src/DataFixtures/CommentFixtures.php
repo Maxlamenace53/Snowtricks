@@ -40,7 +40,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             ->setComment($this->faker->paragraph)
             ->setUser($user1)
             ->setTrick($trick1)
-            ->setCreateDate($this->faker->dateTime);
+            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($comment1);
 
         $comment2 = new Comment();
@@ -48,7 +48,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             ->setComment($this->faker->paragraph)
             ->setUser($user1)
             ->setTrick($trick3)
-            ->setCreateDate($this->faker->dateTime);
+            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($comment2);
 
         $comment3 = new Comment();
@@ -56,7 +56,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             ->setComment($this->faker->paragraph)
             ->setUser($user2)
             ->setTrick($trick4)
-            ->setCreateDate($this->faker->dateTime);
+            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($comment3);
 
         $comment4 = new Comment();
@@ -64,7 +64,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             ->setComment($this->faker->paragraph)
             ->setUser($user3)
             ->setTrick($trick1)
-            ->setCreateDate($this->faker->dateTime);
+            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($comment4);
 
         $comment5 = new Comment();
@@ -72,7 +72,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             ->setComment($this->faker->paragraph)
             ->setUser($user4)
             ->setTrick($trick1)
-            ->setCreateDate($this->faker->dateTime);
+            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($comment5);
 
 

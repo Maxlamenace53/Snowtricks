@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Faker\Core\DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -14,18 +16,25 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\Length(
+        min: 2,
+        max: 200,
+        minMessage: 'Le commentaire est trop cours, rallonge un peu !',
+        maxMessage: 'Ooohh trop long !',
+    )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $comment = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $createDate = null;
+
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    private ?\DateTimeInterface $createDate =null ;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Trick $Trick = null;
+    private ?Trick $trick = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
-    private ?User $User = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -58,25 +67,28 @@ class Comment
 
     public function getTrick(): ?Trick
     {
-        return $this->Trick;
+        return $this->trick;
     }
 
-    public function setTrick(?Trick $Trick): self
+    public function setTrick(?Trick $trick): self
     {
-        $this->Trick = $Trick;
+        $this->trick = $trick;
 
         return $this;
     }
 
     public function getUser(): ?User
     {
-        return $this->User;
+        return $this->user;
     }
 
-    public function setUser(?User $User): self
+    public function setUser(?User $user): self
     {
-        $this->User = $User;
+        $this->user = $user;
 
         return $this;
     }
+
+
+
 }

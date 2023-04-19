@@ -22,11 +22,11 @@ class GroupTrick
     private ?string $logo = null;
 
     #[ORM\OneToMany(mappedBy: 'groupTrick', targetEntity: Trick::class)]
-    private Collection $Trick;
+    private Collection $tricks;
 
     public function __construct()
     {
-        $this->Trick = new ArrayCollection();
+        $this->tricks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,15 +61,15 @@ class GroupTrick
     /**
      * @return Collection<int, Trick>
      */
-    public function getTrick(): Collection
+    public function getTricks(): Collection
     {
-        return $this->Trick;
+        return $this->tricks;
     }
 
     public function addTrick(Trick $trick): self
     {
-        if (!$this->Trick->contains($trick)) {
-            $this->Trick->add($trick);
+        if (!$this->tricks->contains($trick)) {
+            $this->tricks->add($trick);
             $trick->setGroupTrick($this);
         }
 
@@ -78,7 +78,7 @@ class GroupTrick
 
     public function removeTrick(Trick $trick): self
     {
-        if ($this->Trick->removeElement($trick)) {
+        if ($this->tricks->removeElement($trick)) {
             // set the owning side to null (unless already changed)
             if ($trick->getGroupTrick() === $this) {
                 $trick->setGroupTrick(null);

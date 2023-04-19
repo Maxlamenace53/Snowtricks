@@ -3110,7 +3110,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </reflist>
 </include>
 <name>
-<val>Créer trick</val>
+<val>Créer tricks</val>
 </name>
 <package>
 <ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
@@ -3163,7 +3163,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </ActorItem>
 <UseCase id="178cef11-d4b1-11ed-95e4-1784adf454e3">
 <name>
-<val>Vérifier proposition trick</val>
+<val>Vérifier proposition tricks</val>
 </name>
 <package>
 <ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
@@ -3196,7 +3196,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </UseCaseItem>
 <UseCase id="2130633b-d4b1-11ed-9300-1784adf454e3">
 <name>
-<val>Visualiser trick</val>
+<val>Visualiser tricks</val>
 </name>
 <package>
 <ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
@@ -4044,7 +4044,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Extend>
 <UseCase id="945db313-d4b2-11ed-9fd3-1784adf454e3">
 <name>
-<val>Visualisé commentaire trick</val>
+<val>Visualisé commentaire tricks</val>
 </name>
 <package>
 <ref refid="58d6c2e8-66f8-11ec-b4c8-0456e5e540ed"/>
@@ -5694,7 +5694,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </reflist>
 </incoming>
 <name>
-<val>Ajout  nouveau trick</val>
+<val>Ajout  nouveau tricks</val>
 </name>
 <outgoing>
 <reflist>
@@ -5861,7 +5861,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </ControlFlow>
 <Comment id="465e3b48-d539-11ed-bc68-e560b7793dba">
 <body>
-<val>Gestion trick</val>
+<val>Gestion tricks</val>
 </body>
 <presentation>
 <reflist>
@@ -6934,7 +6934,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </reflist>
 </incoming>
 <name>
-<val>Modifier trick</val>
+<val>Modifier tricks</val>
 </name>
 <outgoing>
 <reflist>
@@ -6978,7 +6978,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </reflist>
 </incoming>
 <name>
-<val>Supprimer trick</val>
+<val>Supprimer tricks</val>
 </name>
 <outgoing>
 <reflist>
@@ -7479,7 +7479,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Diagram>
 <Class id="27b1cc1a-d53d-11ed-a1e5-e560b7793dba">
 <name>
-<val>User</val>
+<val>user</val>
 </name>
 <ownedAttribute>
 <reflist>
@@ -7538,7 +7538,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </reflist>
 </generalization>
 <name>
-<val>Trick</val>
+<val>tricks</val>
 </name>
 <ownedAttribute>
 <reflist>
@@ -7924,7 +7924,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="b0f1f1a4-d540-11ed-a86c-e560b7793dba"/>
 </ownerFormalParam>
 <typeValue>
-<val>User</val>
+<val>user</val>
 </typeValue>
 </Parameter>
 <AssociationItem id="536f4e00-d541-11ed-b0d7-e560b7793dba">
@@ -8541,7 +8541,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="c40b82a6-d57b-11ed-b270-e98464260e53"/>
 </ownerFormalParam>
 <typeValue>
-<val>trick</val>
+<val>tricks</val>
 </typeValue>
 </Parameter>
 <AssociationItem id="e135a3ab-d57b-11ed-a644-e98464260e53">
@@ -8893,7 +8893,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="3c53a52f-d53d-11ed-a75d-e560b7793dba"/>
 </class_>
 <name>
-<val>mainPhoto</val>
+<val>mainVideo</val>
 </name>
 <typeValue>
 <val>booléen</val>

@@ -26,7 +26,7 @@ class UserFixtures extends Fixture
         ->setEmail('admin@mail.com')
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
-        ->setRegistrationDate($this->faker->dateTime)
+        ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)
         ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
@@ -39,7 +39,7 @@ class UserFixtures extends Fixture
         ->setEmail($this->faker->email)
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
-        ->setRegistrationDate($this->faker->dateTime)
+        ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)
         ->setRoles(['ROLE_USER']);
         $manager->persist($user1);
@@ -52,7 +52,7 @@ class UserFixtures extends Fixture
         ->setEmail($this->faker->email)
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
-        ->setRegistrationDate($this->faker->dateTime)
+        ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)
         ->setRoles(['ROLE_USER']);
         $manager->persist($user2);
@@ -65,7 +65,7 @@ class UserFixtures extends Fixture
             ->setEmail($this->faker->email)
             ->setPassword('password')
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
-            ->setRegistrationDate($this->faker->dateTime)
+            ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph)
             ->setRoles(['ROLE_USER']);
         $manager->persist($user3);
@@ -78,7 +78,7 @@ class UserFixtures extends Fixture
             ->setEmail($this->faker->email)
             ->setPassword('password')
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
-            ->setRegistrationDate($this->faker->dateTime)
+            ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph)
             ->setRoles(['ROLE_USER']);
         $manager->persist($user4);

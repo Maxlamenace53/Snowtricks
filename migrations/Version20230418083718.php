@@ -21,7 +21,7 @@ final class Version20230418083718 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE photo_trick ADD trick_id INT DEFAULT NULL, ADD user_id INT NOT NULL');
-        $this->addSql('ALTER TABLE photo_trick ADD CONSTRAINT FK_62A1AEA9B281BE2E FOREIGN KEY (trick_id) REFERENCES trick (id)');
+        $this->addSql('ALTER TABLE photo_trick ADD CONSTRAINT FK_62A1AEA9B281BE2E FOREIGN KEY (trick_id) REFERENCES tricks (id)');
         $this->addSql('ALTER TABLE photo_trick ADD CONSTRAINT FK_62A1AEA9A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_62A1AEA9B281BE2E ON photo_trick (trick_id)');
         $this->addSql('CREATE INDEX IDX_62A1AEA9A76ED395 ON photo_trick (user_id)');

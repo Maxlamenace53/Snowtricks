@@ -22,24 +22,24 @@ class Trick
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeInterface $creationDate = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Trick')]
+    #[ORM\ManyToOne(inversedBy: 'tricks')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'Trick', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: Comment::class)]
     private Collection $comments;
 
-    #[ORM\ManyToOne(inversedBy: 'Trick')]
+    #[ORM\ManyToOne(inversedBy: 'tricks')]
     #[ORM\JoinColumn(nullable: false)]
     private ?GroupTrick $groupTrick = null;
 
-    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: PhotoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: PhotoTrick::class)]
     private Collection $photoTricks;
 
-    #[ORM\OneToMany(mappedBy: 'Trick', targetEntity: VideoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: VideoTrick::class)]
     private Collection $videoTricks;
 
     public function __construct()

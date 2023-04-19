@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}tricks index{% endblock %}
+
+{% block body %}
+    <h1>tricks index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NameTrick</th>
+                <th>Description</th>
+                <th>CreationDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trick in tricks %}
+            <tr>
+                <td>{{ trick.id }}</td>
+                <td>{{ trick.nameTrick }}</td>
+                <td>{{ trick.description }}</td>
+                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_trick_show', {'id': trick.id}) }}">show</a>
+                    <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_trick_new') }}">Create new</a>
+{% endblock %}
