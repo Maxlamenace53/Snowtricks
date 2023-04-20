@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/tricks')]
+#[Route('/trick')]
 class TrickController extends AbstractController
 {
     #[Route('/', name: 'app_trick_index', methods: ['GET'])]
@@ -35,7 +35,7 @@ class TrickController extends AbstractController
         }
 
         return $this->render('trick/new.html.twig', [
-            'tricks' => $trick,
+            'trick' => $trick,
             'form' => $form,
         ]);
     }
@@ -44,7 +44,7 @@ class TrickController extends AbstractController
     public function show(Trick $trick): Response
     {
         return $this->render('trick/show.html.twig', [
-            'tricks' => $trick,
+            'trick' => $trick,
         ]);
     }
 
@@ -60,8 +60,8 @@ class TrickController extends AbstractController
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('trick/edit.html.twig', [
-            'tricks' => $trick,
+        return $this->render('trick/edit.html.twig', [
+            'trick' => $trick,
             'form' => $form,
         ]);
     }

@@ -24,3 +24,4 @@ php bin/console make:fixture
 php bin/console doctrine:fixtures:load
 ```
 ```shell
+```
