@@ -16,6 +16,9 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotNull(
+        message: 'Un commentaire vide...mais pourquoi?'
+    )]
     #[Assert\Length(
         min: 2,
         max: 200,
@@ -34,6 +37,7 @@ class Comment
     private ?Trick $trick = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: true, onDelete: "SET NULL")]
     private ?User $user = null;
 
     public function getId(): ?int

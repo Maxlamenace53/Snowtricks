@@ -27,8 +27,7 @@ class UserFixtures extends Fixture
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph)
-        ->setRoles(['ROLE_ADMIN']);
+        ->setDescription($this->faker->paragraph);
         $manager->persist($admin);
 
 
@@ -40,8 +39,7 @@ class UserFixtures extends Fixture
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph)
-        ->setRoles(['ROLE_USER']);
+        ->setDescription($this->faker->paragraph);
         $manager->persist($user1);
         $this->addReference("user1", $user1);
 
@@ -53,8 +51,7 @@ class UserFixtures extends Fixture
         ->setPassword('password')
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph)
-        ->setRoles(['ROLE_USER']);
+        ->setDescription($this->faker->paragraph);
         $manager->persist($user2);
         $this->addReference("user2", $user2);
 
@@ -66,8 +63,7 @@ class UserFixtures extends Fixture
             ->setPassword('password')
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setDescription($this->faker->paragraph)
-            ->setRoles(['ROLE_USER']);
+            ->setDescription($this->faker->paragraph);
         $manager->persist($user3);
         $this->addReference("user3", $user3);
 
@@ -79,8 +75,7 @@ class UserFixtures extends Fixture
             ->setPassword('password')
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setDescription($this->faker->paragraph)
-            ->setRoles(['ROLE_USER']);
+            ->setDescription($this->faker->paragraph);
         $manager->persist($user4);
         $this->addReference("user4", $user4);
 

@@ -35,7 +35,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
 
 
        $trick1= new Trick();
-       $trick1->setNameTrick($this->faker->title)
+       $trick1->setNameTrick($this->faker->country.$this->faker->colorName)
         ->setDescription($this->faker->paragraph)
         ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
         ->setGroupTrick($groupeEasy)
@@ -44,7 +44,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
        $this->addReference('trick1', $trick1);
 
         $trick2= new Trick();
-        $trick2->setNameTrick($this->faker->title)
+        $trick2->setNameTrick($this->faker->country.$this->faker->colorName)
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
@@ -53,7 +53,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('trick2', $trick2);
 
         $trick3= new Trick();
-        $trick3->setNameTrick($this->faker->title)
+        $trick3->setNameTrick($this->faker->country.$this->faker->colorName)
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
@@ -62,7 +62,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('trick3', $trick3);
 
         $trick4= new Trick();
-        $trick4->setNameTrick($this->faker->title)
+        $trick4->setNameTrick($this->faker->country.$this->faker->colorName)
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
@@ -71,7 +71,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('trick4', $trick4);
 
         $trick5= new Trick();
-        $trick5->setNameTrick($this->faker->title)
+        $trick5->setNameTrick($this->faker->country.$this->faker->colorName)
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
@@ -80,7 +80,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('trick5', $trick5);
 
         $trick6= new Trick();
-        $trick6->setNameTrick($this->faker->title)
+        $trick6->setNameTrick($this->faker->country.$this->faker->colorName)
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
