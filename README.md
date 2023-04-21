@@ -24,4 +24,7 @@ php bin/console make:fixture
 php bin/console doctrine:fixtures:load
 ```
 ```shell
+composer require symfony/webpack-encore-bundle
+composer require symfony/ux-vue
+
 ```

@@ -14,6 +14,8 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+           {#  <div {{ vue_component('MyComponent', { 'name': controller_name }) }}></div>#}
+        {% endblock %}
     </body>
 </html>

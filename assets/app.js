@@ -1,4 +1,6 @@
 // assets/app.js
+//vueJs
+import { registerVueControllerComponents } from '@symfony/ux-vue';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -11,3 +13,5 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+
+registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
