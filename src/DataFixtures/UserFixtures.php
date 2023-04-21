@@ -7,15 +7,18 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 class UserFixtures extends Fixture
 {
     /**
      * @var Generator
      */
-    public function __construct()
+    public function __construct(UserPasswordHasherInterface $hasher)
 {
     $this->faker = Factory::create('fr_FR');
+    $this->hasher = $hasher;
 }
 
     public function load(ObjectManager $manager): void
@@ -24,10 +27,11 @@ class UserFixtures extends Fixture
         $admin->setFirstname('admin')->setLastname('admin')
         ->setNickname($this->faker->userName)
         ->setEmail('admin@mail.com')
-        ->setPassword('password')
+        ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph);
+        ->setDescription($this->faker->paragraph)
+        ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
 
@@ -36,7 +40,7 @@ class UserFixtures extends Fixture
         $user1->setFirstname($this->faker->firstName)->setLastname($this->faker->lastName)
         ->setNickname($this->faker->userName)
         ->setEmail($this->faker->email)
-        ->setPassword('password')
+        ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph);
@@ -48,7 +52,7 @@ class UserFixtures extends Fixture
         $user2->setFirstname($this->faker->firstName)->setLastname($this->faker->lastName)
         ->setNickname($this->faker->userName)
         ->setEmail($this->faker->email)
-        ->setPassword('password')
+        ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph);
@@ -60,7 +64,7 @@ class UserFixtures extends Fixture
         $user3->setFirstname($this->faker->firstName)->setLastname($this->faker->lastName)
             ->setNickname($this->faker->userName)
             ->setEmail($this->faker->email)
-            ->setPassword('password')
+            ->setPassword($this->hasher->hashPassword($admin, 'password'))
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph);
@@ -72,7 +76,7 @@ class UserFixtures extends Fixture
         $user4->setFirstname($this->faker->firstName)->setLastname($this->faker->lastName)
             ->setNickname($this->faker->userName)
             ->setEmail($this->faker->email)
-            ->setPassword('password')
+            ->setPassword($this->hasher->hashPassword($admin, 'password'))
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph);
