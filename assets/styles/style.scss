@@ -1,0 +1,32 @@
+@use "normalize.css/normalize";
+//base
+@use 'base/_reset';
+@use 'base/_background';
+@use 'base/_typographie';
+
+//components
+@use 'components/_buttons';
+@use 'components/_carrousel.scss';
+@use 'components/_cardLastTrick.scss';
+@use 'components/_cardLastNews.scss';
+
+//layout
+@use 'layout/_footer.scss';
+@use 'layout/_form.scss';
+@use 'layout/_grid.scss';
+@use 'layout/_header.scss';
+@use 'layout/_navigation.scss';
+@use 'layout/_sidebar.scss';
+@use "layout/_container.scss";
+
+//pages
+@use 'pages/_contact.scss';
+@use 'pages/_helpers.scss';
+@use 'pages/_home.scss';
+//sass-utils
+
+//vendor
+
+
+
+

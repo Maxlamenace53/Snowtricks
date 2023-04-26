@@ -1,0 +1,54 @@
+@use "assets/styles/sass-utils/variables";
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #9ad7e3;
+  margin-top: 1rem;
+
+
+  .footer-sup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon{
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    height: 80px;
+
+  }
+
+}
+
+.footer-inf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 40px;
+  background-color: #679ba5;
+}
+
+
+@media screen and (max-width: variables.$breakpoint-desktop) {
+
+
+}
+
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+
+
+}
+
+@media screen and (max-width: variables.$breakpoint-smartphone) {
+  .footer-inf{
+    align-content: space-around;
+  }
+
+
+}

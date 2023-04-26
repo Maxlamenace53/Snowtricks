@@ -1,0 +1,43 @@
+@use '../sass-utils/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  background-color:variables.$color-background;
+
+}
+.main {
+  width: variables.$breakpoint-desktop;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: variables.$breakpoint-desktop) {
+  .container {
+    width: variables.$breakpoint-tablet;
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+  .container {
+    width: variables.$breakpoint-smartphone;
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-smartphone) {
+  .container {
+    width: 100%;
+  }
+}
+
+
+
+

@@ -1,9 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Acceuil Snowtricks!{% endblock %}
 
 {% block body %}
+    <section class="top-homepage">
+        {% include 'default/_card_lastTrick.html.twig' %}
 
-    <div {{ vue_component('MyComponent', { 'name': controller_name }) }}></div>
+        {% include 'default/_card_lastNews.html.twig' %}
+
+    </section>
+
+
+    <section class="bottom-homepage" >
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

@@ -1,0 +1,29 @@
+<header class="top-nav">
+    <div>
+        <a href="{{ path('app_homepage') }}">Logo SnowTrick</a>
+    </div>
+    <h2>Le site collaboratif de réference sur le snowboard</h2>
+    {% if app.user %}
+        <div class="user-avatar">
+            <h3>Bienvenue {{ app.user.nickname }}</h3>
+            <img src="{{ app.user.avatar }}" alt="Avatar de {{ app.user.nickname }}">
+        </div>
+    {% endif %}
+    <input id="menu-toggle" type="checkbox"/>
+    <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+    </label>
+    <ul class="menu">
+        {% if app.user %}
+            <li><a href="{{ path('app_homepage') }}">Page d'acceuil</a></li>
+            <li><a href="{{ path('app_user_show', {'id':app.user.id }) }}">Page profil</a></li>
+            <li><a href="{{ path('app_trick_new') }}">Crée un trick</a></li>
+            <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+            <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+        {% endif %}
+    </ul>
+</header>
+
+

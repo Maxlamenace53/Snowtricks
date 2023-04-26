@@ -1,24 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}user{% endblock %}
+{% block title %}profil de {{ app.user.nickname }}{% endblock %}
 
 {% block body %}
-    <h1>user</h1>
+    <h1>Hey {{ app.user.nickname }} Voila ton espace rien qu'à toi !</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
+
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
+
             <tr>
                 <th>Password</th>
                 <td>{{ user.password }}</td>
