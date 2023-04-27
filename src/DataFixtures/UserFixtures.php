@@ -30,7 +30,7 @@ class UserFixtures extends Fixture
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph)
+        ->setDescription($this->faker->paragraph)->setIsVerified(true)
         ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
@@ -39,11 +39,11 @@ class UserFixtures extends Fixture
         $user1 = new User();
         $user1->setFirstname($this->faker->firstName)->setLastname($this->faker->lastName)
         ->setNickname($this->faker->userName)
-        ->setEmail($this->faker->email)
+        ->setEmail('max@mail.com')
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph);
+        ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user1);
         $this->addReference("user1", $user1);
 
@@ -55,7 +55,7 @@ class UserFixtures extends Fixture
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
         ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setDescription($this->faker->paragraph);
+        ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user2);
         $this->addReference("user2", $user2);
 
@@ -67,7 +67,7 @@ class UserFixtures extends Fixture
             ->setPassword($this->hasher->hashPassword($admin, 'password'))
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setDescription($this->faker->paragraph);
+            ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user3);
         $this->addReference("user3", $user3);
 
@@ -79,7 +79,7 @@ class UserFixtures extends Fixture
             ->setPassword($this->hasher->hashPassword($admin, 'password'))
             ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setDescription($this->faker->paragraph);
+            ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user4);
         $this->addReference("user4", $user4);
 

@@ -7,10 +7,7 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ trick.id }}</td>
-            </tr>
+
             <tr>
                 <th>Group</th>
                 <td>{{ trick.groupTrick.name}}</td>
@@ -27,6 +24,10 @@
                 <th>CreationDate</th>
                 <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d') : '' }}</td>
             </tr>
+
+            <tr>
+                <th> Image</th>
+            </tr>
         </tbody>
     </table>
 
@@ -34,5 +35,5 @@
 
     <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">edit</a>
 
-    {{ include('trick/_delete_form.html.twig') }}
+     {# {{ include('trick/_delete_form.html.twig') }} #}
 {% endblock %}

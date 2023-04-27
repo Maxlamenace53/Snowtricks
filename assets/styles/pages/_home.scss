@@ -1,13 +1,25 @@
+@use "assets/styles/sass-utils/variables" as *;
+
 main {
   display: grid;
   grid-auto-columns: auto;
-  .top-homepage{
-    background-color: blue;
+  grid-row-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas:
+    "a b"
+    "c c ";
+}
 
-  }
-  .bottom-homepage{
-    background-color: yellow;
+.lastTrick-card {
+  grid-area: a;
+}
 
-  }
+.lastNews-card {
+  grid-area: b;
+}
 
+.groups-card {
+  grid-area: c;
 }

@@ -37,17 +37,17 @@ class Trick
     #[ORM\JoinColumn(nullable: true, onDelete: "SET NULL")]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: Comment::class)]
     private Collection $comments;
 
     #[ORM\ManyToOne(inversedBy: 'tricks')]
     #[ORM\JoinColumn(nullable: false)]
     private ?GroupTrick $groupTrick = null;
 
-    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: PhotoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: PhotoTrick::class)]
     private Collection $photoTricks;
 
-    #[ORM\OneToMany(mappedBy: 'tricks', targetEntity: VideoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: VideoTrick::class)]
     private Collection $videoTricks;
 
     public function __construct()
