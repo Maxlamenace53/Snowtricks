@@ -9,31 +9,28 @@ html {
 }
 
 body{
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100vh;
   background-color:variables.$color-background;
 
 }
-.main {
+.container-main {
   width: variables.$breakpoint-desktop;
   margin: 0 auto;
 }
 
 @media screen and (max-width: variables.$breakpoint-desktop) {
-  .container {
+  .container-main {
     width: variables.$breakpoint-tablet;
   }
 }
 
 @media screen and (max-width: variables.$breakpoint-tablet) {
-  .container {
+  .container-main {
     width: variables.$breakpoint-smartphone;
   }
 }
 
 @media screen and (max-width: variables.$breakpoint-smartphone) {
-  .container {
+  .container-main {
     width: 100%;
   }
 }

@@ -1,0 +1,55 @@
+body{
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+
+
+.container-show-trick {
+  display: grid;
+  width: 100%;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  grid-template:
+  "title title title"
+  "photo descr descr"
+  "gallery gallery comment"
+  "videos videos comment"
+  "button button comment "
+  "footer footer footer"
+}
+
+.trick-title {
+  grid-area: title;
+}
+
+.trick-photo-main {
+  grid-area: photo;
+}
+
+.trick-description {
+  grid-area: descr;
+}
+
+.trick-gallery {
+  grid-area: gallery;
+}
+
+.trick-videos {
+  grid-area: videos;
+}
+
+.trick-comment {
+  grid-area: comment;
+}
+
+.trick-footer {
+  grid-area: footer;
+}
+
+.trick-button {
+  grid-area: button;
+}
+

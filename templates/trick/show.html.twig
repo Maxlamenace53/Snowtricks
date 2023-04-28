@@ -3,37 +3,48 @@
 {% block title %}tricks{% endblock %}
 
 {% block body %}
-    <h1>trick</h1>
+    <div class="container container-show-trick">
+        <div class="content trick-title">
+            <h4>Group :{{ trick.groupTrick.logo }}{{ trick.groupTrick.name }}</h4>
+            <h2>{{ trick.nameTrick }}</h2>
+        </div>
 
-    <table class="table">
-        <tbody>
+        <div class="content trick-photo-main">
+            <h3>photo principal</h3>
+            <img src="" alt="Photo principal">
+        </div>
 
-            <tr>
-                <th>Group</th>
-                <td>{{ trick.groupTrick.name}}</td>
-            </tr>
-            <tr>
-                <th>NameTrick</th>
-                <td>{{ trick.nameTrick }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ trick.description }}</td>
-            </tr>
-            <tr>
-                <th>CreationDate</th>
-                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d') : '' }}</td>
-            </tr>
+        <div class="content trick-description">
+            <h3>Description</h3>
+            <p>{{ trick.description }}</p>
 
-            <tr>
-                <th> Image</th>
-            </tr>
-        </tbody>
-    </table>
+        </div>
 
-    <a href="{{ path('app_trick_index') }}">back to list</a>
+        <div class="content trick-gallery">
+            <h3>Gallerie Photos</h3>
 
-    <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">edit</a>
+        </div>
 
-     {# {{ include('trick/_delete_form.html.twig') }} #}
+        <div class="content trick-videos">
+            <h3>Vidéos</h3>
+
+        </div>
+
+        <div class="content trick-comment">
+            <h3>Espace commentaire</h3>
+
+        </div>
+
+        <div class="content trick-footer">
+
+            Crée le {{ trick.creationDate ? trick.creationDate|date('Y-m-d') : '' }}</td> par {{ trick.user.nickname }}
+        </div>
+
+        <div class="content trick-button">
+            <a href="{{ path('app_trick_index') }}">back to list</a>
+
+            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">edit</a>
+        </div>
+        {# {{ include('trick/_delete_form.html.twig') }} #}
+    </div>
 {% endblock %}
