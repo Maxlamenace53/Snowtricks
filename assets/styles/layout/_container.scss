@@ -1,2 +1,25 @@
 @use '../sass-utils/variables';
 
+.container {
+  width: variables.$breakpoint-desktop;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+@media screen and (max-width: variables.$breakpoint-desktop) {
+  .container {
+    width: variables.$breakpoint-tablet;
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+  .container {
+    width: variables.$breakpoint-smartphone;
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-smartphone) {
+  .container {
+    width: 100%;
+  }
+}

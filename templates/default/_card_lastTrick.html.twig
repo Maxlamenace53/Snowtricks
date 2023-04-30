@@ -1,5 +1,15 @@
-<article class="lastTrick-card">
+
+<article class="content lastTrick-card">
+    <a href="{{ path('app_trick_show', {'id':LastTrick.id}) }}">
 <header>
 <h1 class="lastTrick-card__title">Dernière Rentrée</h1>
+    <img src="" alt="">
+
 </header>
+    <footer>
+        Ajouté le {{ LastTrick.creationDate.format('Y m d') }} par {{ LastTrick.user.nickname }}
+        <h2>{{ LastTrick.nameTrick }}</h2>
+        <img src="{{ LastTrick.groupTrick.logo}} " alt="">{{LastTrick.groupTrick.name }}</h4>
+    </footer>
+    </a>
 </article>

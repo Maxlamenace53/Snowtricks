@@ -12,28 +12,8 @@ body{
   background-color:variables.$color-background;
 
 }
-.container-main {
-  width: variables.$breakpoint-desktop;
-  margin: 0 auto;
-}
 
-@media screen and (max-width: variables.$breakpoint-desktop) {
-  .container-main {
-    width: variables.$breakpoint-tablet;
-  }
-}
 
-@media screen and (max-width: variables.$breakpoint-tablet) {
-  .container-main {
-    width: variables.$breakpoint-smartphone;
-  }
-}
-
-@media screen and (max-width: variables.$breakpoint-smartphone) {
-  .container-main {
-    width: 100%;
-  }
-}
 
 
 
