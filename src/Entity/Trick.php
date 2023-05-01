@@ -44,10 +44,10 @@ class Trick
     #[ORM\JoinColumn(nullable: false)]
     private ?GroupTrick $groupTrick = null;
 
-    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: PhotoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist'] ,targetEntity: PhotoTrick::class)]
     private Collection $photoTricks;
 
-    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: VideoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist'] ,targetEntity: VideoTrick::class)]
     private Collection $videoTricks;
 
     public function __construct()
@@ -210,5 +210,10 @@ class Trick
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->nameTrick;
     }
 }

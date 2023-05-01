@@ -4,6 +4,7 @@
 
 {% block body %}
     <h1>Create new tricks</h1>
+    {{ dump(app.user) }}
 
     {{ include('trick/_form.html.twig') }}
 

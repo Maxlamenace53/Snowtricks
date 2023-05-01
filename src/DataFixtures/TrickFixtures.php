@@ -36,7 +36,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
 
        $trick1= new Trick();
        $trick1->setNameTrick($this->faker->country.$this->faker->colorName)
-        ->setDescription($this->faker->paragraph)
+        ->setDescription($this->faker->text)
         ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
         ->setGroupTrick($groupeEasy)
         ->setUser($user1);
