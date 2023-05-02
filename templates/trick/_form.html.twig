@@ -36,8 +36,8 @@
             Ajouter une photo
         </button>
     </div>
-    <h3>Videos</h3>
-    <div {{ stimulus_controller('form-collection') }}
+    {#  <h3>Videos</h3>
+  <div {{ stimulus_controller('form-collection') }}
             data-form-collection-index-value="{{ form.videoTricks|length > 0 ? form.videoTricks|last.vars.name + 1 : 0 }}"
             data-form-collection-prototype-value="{{ form_widget(form.videoTricks.vars.prototype)|e('html_attr') }}"
     >
@@ -51,12 +51,7 @@
         <button type="button" {{ stimulus_action('form-collection', 'addCollectionElement') }}>
             Ajouter une vidéo
         </button>
-    </div>
-
-
-
-
-
+    </div> #}
 
 
     <button class="btn">{{ button_label|default('Save') }}</button>

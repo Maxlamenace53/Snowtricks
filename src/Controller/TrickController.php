@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\PhotoTrick;
 use App\Entity\Trick;
 use App\Form\TrickType;
+use App\Repository\PhotoTrickRepository;
 use App\Repository\TrickRepository;
 use App\Service\FileUploader;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,16 +42,6 @@ class TrickController extends AbstractController
                     $trick->getPhotoTricks()->get($key)->setPhoto($fileName);
                 }
             }
-            foreach ($form->get('videoTricks')->all() as $key1 => $videoForm) {
-                /** @var UploadedFile $video */
-                $video = $videoForm->get('video')->getData();
-                if ($video) {
-                    $fileName = $fileUploader->upload($video);
-                    $trick->getVideoTricks()->get($key1)->setVideo($fileName);
-                }
-            }
-
-
 
 
             $trickRepository->save($trick, true);
@@ -71,20 +64,25 @@ class TrickController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_trick_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, FileUploader $fileUploader): Response
+    public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, FileUploader $fileUploader, PhotoTrickRepository $photoTrickRepository): Response
     {
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
+        $photoTrick = $photoTrickRepository->findOneBy(['trick' => $trick->getId()]);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            foreach ($form->get('photoTricks')->all() as $key => $photoForm) {
-                /** @var UploadedFile $image */
-                $image = $photoForm->get('photo')->getData();
-                if ($image) {
-                    $fileName = $fileUploader->upload($image);
-                    $trick->getPhotoTricks()->get($key)->setPhoto($fileName);
-                }
+
+            /** @var UploadedFile $image */
+            $image = $form->get('photoTricks')->getData();
+            if ($image) {
+                $fileName = $fileUploader->upload($image);
+                $photoTrick->setPhoto($fileName);
+            } else if ($form->get('removeImage')->getData()) {
+                unlink($this->getParameter('uploads_path') . '/' . $photoTrick->getPhoto());
+                $photoTrick->setPhoto(null);
             }
+
+
             $trickRepository->save($trick, true);
 
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);

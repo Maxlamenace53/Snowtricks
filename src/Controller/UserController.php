@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\TrickRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +21,16 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+ /*   #[Route('/trick', name: 'app_user_trick_index', methods: ['GET'])]
+    public function TrickController(TrickRepository $trickRepository ): Response
+    {
+        return $this->render('user/trick/index.html.twig', [
+            'tricks' => $trickRepository->findAll(),
+        ]);
+    }*/
+
+
+
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository): Response
@@ -49,6 +60,7 @@ class UserController extends AbstractController
         ]);
     }
 
+
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
@@ -76,4 +88,7 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
 }
