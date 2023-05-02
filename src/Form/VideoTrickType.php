@@ -17,7 +17,9 @@ class VideoTrickType extends AbstractType
         $builder
             ->add('video',TextType::class)
             ->add('dateAdded')
-            ->add('mainVideo',Boolean::class)
+            ->add('mainVideo',CheckboxType::class,[
+                'required' => false,
+                'label' => 'Photo principale'])
             ->add('trick')
             ->add('user')
         ;

@@ -39,6 +39,15 @@ class TrickController extends AbstractController
                     $trick->getPhotoTricks()->get($key)->setPhoto($fileName);
                 }
             }
+            foreach ($form->get('videoTricks')->all() as $key1 => $videoForm) {
+                /** @var UploadedFile $video */
+                $video = $videoForm->get('video')->getData();
+                if ($video) {
+                    $fileName = $fileUploader->upload($video);
+                    $trick->getVideoTricks()->get($key1)->setVideo($fileName);
+                }
+            }
+
 
 
 

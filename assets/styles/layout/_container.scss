@@ -3,7 +3,7 @@
 .container {
   width: variables.$breakpoint-desktop;
   margin: 0 auto;
-  background-color: blue;
+  background-color: #689ca6;
 }
 
 @media screen and (max-width: variables.$breakpoint-desktop) {
