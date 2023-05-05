@@ -83,10 +83,12 @@ body {
 
 .trick-gallery {
   grid-area: gallery;
+  height: 320px;
 }
 
 .trick-videos {
   grid-area: videos;
+  height: 320px;
 }
 
 .trick-comment {

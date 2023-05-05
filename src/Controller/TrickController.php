@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\PhotoTrick;
 use App\Entity\Trick;
 use App\Form\TrickType;
 use App\Repository\PhotoTrickRepository;
@@ -14,6 +13,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 
 #[Route('/trick')]
 class TrickController extends AbstractController
@@ -25,13 +26,16 @@ class TrickController extends AbstractController
             'tricks' => $trickRepository->findAll(),
         ]);
     }
-
+    #[IsGranted('ROLE_USER', message: 'Connecter pour créer !Telle est la devise de SnowTricks')]
     #[Route('/new', name: 'app_trick_new', methods: ['GET', 'POST'])]
     public function new(Request $request, TrickRepository $trickRepository, FileUploader $fileUploader): Response
     {
         $trick = new Trick();
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
+
+        $trick->setUser($this->getUser() );
+        $trick->setCreationDate(new \DateTimeImmutable('now'));
 
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($form->get('photoTricks')->all() as $key => $photoForm) {
@@ -43,6 +47,12 @@ class TrickController extends AbstractController
                 }
             }
 
+            foreach ($form->get('videoTricks')->all() as $key => $videoForm) {
+                $video = $videoForm->get('video')->getData();
+                if ($video) {
+                    $trick->getVideoTricks()->get($key)->setVideo($video);
+                }
+            }
 
             $trickRepository->save($trick, true);
 
@@ -58,6 +68,7 @@ class TrickController extends AbstractController
     #[Route('/{id}', name: 'app_trick_show', methods: ['GET'])]
     public function show(Trick $trick): Response
     {
+
         return $this->render('trick/show.html.twig', [
             'trick' => $trick,
         ]);
@@ -81,6 +92,8 @@ class TrickController extends AbstractController
                 unlink($this->getParameter('uploads_path') . '/' . $photoTrick->getPhoto());
                 $photoTrick->setPhoto(null);
             }
+
+
 
 
             $trickRepository->save($trick, true);

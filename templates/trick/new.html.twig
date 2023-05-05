@@ -2,7 +2,9 @@
 
 {% block title %}New tricks{% endblock %}
 
+
 {% block body %}
+    {{ dump(trick) }}
     <h1>Create new tricks</h1>
 
     {{ include('trick/_form.html.twig') }}

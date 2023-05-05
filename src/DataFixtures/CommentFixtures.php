@@ -27,6 +27,9 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
         $user3 = $this->getReference('user3');
         $user4 = $this->getReference('user4');
 
+        $userArray = [$user1, $user2, $user3, $user4];
+
+
         $trick1 = $this->getReference('trick1');
         $trick2 = $this->getReference('trick2');
         $trick3 = $this->getReference('trick3');
@@ -34,50 +37,21 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
         $trick5 = $this->getReference('trick5');
         $trick6 = $this->getReference('trick6');
 
-
-        $comment1 = new Comment();
-        $comment1
-            ->setComment($this->faker->paragraph)
-            ->setUser($user1)
-            ->setTrick($trick1)
-            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
-        $manager->persist($comment1);
-
-        $comment2 = new Comment();
-        $comment2
-            ->setComment($this->faker->paragraph)
-            ->setUser($user1)
-            ->setTrick($trick3)
-            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
-        $manager->persist($comment2);
-
-        $comment3 = new Comment();
-        $comment3
-            ->setComment($this->faker->paragraph)
-            ->setUser($user2)
-            ->setTrick($trick4)
-            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
-        $manager->persist($comment3);
-
-        $comment4 = new Comment();
-        $comment4
-            ->setComment($this->faker->paragraph)
-            ->setUser($user3)
-            ->setTrick($trick1)
-            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
-        $manager->persist($comment4);
-
-        $comment5 = new Comment();
-        $comment5
-            ->setComment($this->faker->paragraph)
-            ->setUser($user4)
-            ->setTrick($trick1)
-            ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
-        $manager->persist($comment5);
+        $trickArray = [$trick1, $trick2, $trick3, $trick4, $trick5, $trick6];
 
 
+        for ($i =1; $i<=200; $i++ ){
+            $trickArrayRand = array_rand($trickArray,1);
+            $userArrayRand = array_rand($userArray, 1);
+            $commment = new Comment();
+            $commment
+                ->setUser($userArray[$userArrayRand])
+                ->setTrick($trickArray[$trickArrayRand])
+                ->setComment($this->faker->paragraph)
+                ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
+            $manager->persist($commment);
 
-
+        }
 
         $manager->flush();
     }

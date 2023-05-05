@@ -4,41 +4,60 @@
 
 {% block body %}
     <div class="container container-show-trick">
-        <div class="content trick-title">
-            <h4>Group :{{ trick.groupTrick.logo }}{{ trick.groupTrick.name }}</h4>
-            <h2>{{ trick.nameTrick }}</h2>
-        </div>
+        <header class="content trick-title">
+            <h2>Group : <img src={{ asset( images_asset ~ trick.groupTrick.logo) }}  alt="">{{ trick.groupTrick.name }}</h2>
+            <h1>{{ trick.nameTrick }}</h1>
+        </header>
 
         <div class="content trick-photo-main">
             <h3>photo principal</h3>
-            <img src="" alt="Photo principal">
+            {% for photo in trick.photoTricks %}
+                {% if photo.mainPhoto %}
+                    <img src="{{ asset(uploads_dir ~ photo.photo ) }}" alt="Photo principal">
+                {% endif %}
+            {% endfor %}
+
         </div>
 
-        <div class="content trick-description">
+        <article class="content trick-description">
             <h3>Description</h3>
             <p>{{ trick.description }}</p>
 
-        </div>
+        </article>
+
 
         <div class="content trick-gallery">
             <h3>Gallerie Photos</h3>
-
+            <div class="gallery">
+            {% for photo in trick.photoTricks %}
+                {% if photo.mainPhoto == false %}
+                    <img src="{{ asset(uploads_dir ~ photo.photo ) }}" alt="Photo secondaire">
+                {% endif %}
+            {% endfor %}
+            </div>
         </div>
 
         <div class="content trick-videos">
             <h3>Vidéos</h3>
+            {% for video in trick.videoTricks %}
+                <iframe  src="{{ video.video }}" title="GoPro: Raw Files with Travis Rice | &#39;21/22 Snowboarding Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            {% endfor %}
 
         </div>
 
         <div class="content trick-comment">
             <h3>Espace commentaire</h3>
-
+            <div class="comment" style="border: #222222">
+            {% for comment in trick.comments %}
+                {{ comment.comment }}
+            {% endfor %}
+            </div>
         </div>
 
-        <div class="content trick-footer">
+        <footer class="content trick-footer">
 
             Crée le {{ trick.creationDate ? trick.creationDate|date('Y-m-d') : '' }}</td> par {{ trick.user.nickname }}
-        </div>
+        </footer>
 
         <div class="content trick-button">
             <a href="{{ path('app_trick_index') }}">back to list</a>

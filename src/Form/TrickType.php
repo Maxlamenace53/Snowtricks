@@ -23,11 +23,11 @@ class TrickType extends AbstractType
         $builder
             ->add('nameTrick', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('creationDate')
+          /*  ->add('creationDate')
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'nickname'
-            ])
+            ])*/
 
             ->add('groupTrick')
 

@@ -6,7 +6,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
-use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 
