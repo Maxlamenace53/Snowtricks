@@ -18,12 +18,13 @@
     </div>
 
 
-    <h3>Photos</h3>
+
     <div class="content" {{ stimulus_controller('form-collection') }}
             data-form-collection-index-value="{{ form.photoTricks|length > 0 ? form.photoTricks|last.vars.name + 1 : 0 }}"
             data-form-collection-prototype-value="{{ form_widget(form.photoTricks.vars.prototype)|e('html_attr') }}"
     >
         <ul {{ stimulus_target('form-collection', 'collectionContainer') }}>
+            <h3>Photos</h3>
             {% for photo in form.photoTricks %}
                 <li>
                     {{ form_row(photo.photo) }}
@@ -34,12 +35,13 @@
             Ajouter une photo
         </button>
     </div>
-    <h3>Videos</h3>
-  <div {{ stimulus_controller('form-collection') }}
+
+  <div class="content" {{ stimulus_controller('form-collection') }}
             data-form-collection-index-value="{{ form.videoTricks|length > 0 ? form.videoTricks|last.vars.name + 1 : 0 }}"
             data-form-collection-prototype-value="{{ form_widget(form.videoTricks.vars.prototype)|e('html_attr') }}"
     >
         <ul {{ stimulus_target('form-collection', 'collectionContainer') }}>
+            <h3>Videos</h3>
             {% for video in form.videoTricks %}
                 <li>
                     {{ form_row(video.photo) }}
