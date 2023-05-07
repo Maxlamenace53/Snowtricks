@@ -39,6 +39,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         ->setDescription($this->faker->text)
         ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
         ->setGroupTrick($groupeMedium)
+           ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
         ->setUser($user1);
        $manager->persist($trick1);
        $this->addReference('trick1', $trick1);
@@ -48,6 +49,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeHard)
+            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
             ->setUser($user1);
         $manager->persist($trick2);
         $this->addReference('trick2', $trick2);
@@ -57,6 +59,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeDifficile)
+            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
             ->setUser($user2);
         $manager->persist($trick3);
         $this->addReference('trick3', $trick3);
@@ -66,6 +69,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
+            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
             ->setUser($user3);
         $manager->persist($trick4);
         $this->addReference('trick4', $trick4);
@@ -75,6 +79,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeEasy)
+            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
             ->setUser($user4);
         $manager->persist($trick5);
         $this->addReference('trick5', $trick5);
@@ -84,6 +89,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
             ->setDescription($this->faker->paragraph)
             ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
             ->setGroupTrick($groupeHard)
+            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false))
             ->setUser($user3);
         $manager->persist($trick6);
         $this->addReference('trick6', $trick6);

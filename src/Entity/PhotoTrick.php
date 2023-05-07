@@ -20,8 +20,6 @@ class PhotoTrick
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateAdded = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $mainPhoto = null;
 
     #[ORM\ManyToOne(inversedBy: 'photoTricks')]
     private ?Trick $trick = null;

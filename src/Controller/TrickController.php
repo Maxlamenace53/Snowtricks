@@ -53,6 +53,12 @@ class TrickController extends AbstractController
                     $trick->getVideoTricks()->get($key)->setVideo($video);
                 }
             }
+                $mainPhoto =$form->get('mainPhoto')->getData();
+                if ($mainPhoto){
+                    $fileName = $fileUploader->upload($mainPhoto);
+                    $trick->setMainPhoto($fileName);
+                }
+
 
             $trickRepository->save($trick, true);
 

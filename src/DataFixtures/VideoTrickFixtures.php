@@ -41,7 +41,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video1->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick1)
             ->setUser($user1)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video1);
 
@@ -49,7 +48,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video2->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick1)
             ->setUser($user1)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video2);
 
@@ -57,7 +55,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video3->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick1)
             ->setUser($user2)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video3);
 
@@ -66,7 +63,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video4->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick2)
             ->setUser($user2)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video4);
 
@@ -74,7 +70,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video5->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick2)
             ->setUser($user2)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video5);
 
@@ -82,7 +77,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video6->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick2)
             ->setUser($user3)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video6);
 
@@ -91,7 +85,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video7->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick3)
             ->setUser($user3)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video7);
 
@@ -99,7 +92,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video8->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick3)
             ->setUser($user4)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video8);
 
@@ -107,7 +99,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video9->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick3)
             ->setUser($user4)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video9);
 
@@ -116,7 +107,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video10->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick4)
             ->setUser($user2)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video10);
 
@@ -124,7 +114,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video11->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick4)
             ->setUser($user2)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video11);
 
@@ -133,7 +122,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video12->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick5)
             ->setUser($user1)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video12);
 
@@ -141,7 +129,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video13->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick5)
             ->setUser($user1)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video13);
 
@@ -149,7 +136,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video14->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick5)
             ->setUser($user2)
-            ->setMainVideo(false)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video14);
 
@@ -158,7 +144,6 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $video15->setVideo('https://www.youtube.com/embed/EzGPmg4fFL8')
             ->setTrick($trick6)
             ->setUser($user1)
-            ->setMainVideo(true)
             ->setDateAdded(new \DateTimeImmutable($this->faker->date()));
         $manager->persist($video15);
 

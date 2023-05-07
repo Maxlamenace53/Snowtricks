@@ -51,6 +51,9 @@ class Trick
     #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist'] ,targetEntity: VideoTrick::class)]
     private Collection $videoTricks;
 
+    #[ORM\Column(length: 255)]
+    private ?string $mainPhoto = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -217,5 +220,17 @@ class Trick
     public function __toString(): string
     {
         return $this->nameTrick;
+    }
+
+    public function getMainPhoto(): ?string
+    {
+        return $this->mainPhoto;
+    }
+
+    public function setMainPhoto(string $mainPhoto): self
+    {
+        $this->mainPhoto = $mainPhoto;
+
+        return $this;
     }
 }

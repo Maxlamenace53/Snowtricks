@@ -20,8 +20,6 @@ class VideoTrick
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateAdded = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $mainVideo = null;
 
     #[ORM\ManyToOne(inversedBy: 'videoTricks')]
     private ?Trick $trick = null;

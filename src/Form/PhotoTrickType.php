@@ -21,10 +21,6 @@ class PhotoTrickType extends AbstractType
                 'data_class' => null
             ])
             ->add('dateAdded')
-            ->add('mainPhoto', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Photo principale'
-            ])
             ->add('trick')
             ->add('user');
     }
