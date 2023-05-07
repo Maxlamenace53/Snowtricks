@@ -7,7 +7,7 @@ body {
   height: 100vh;
 }
 
-.container-top-homepage  {
+.container__homepage  {
   display: grid;
   grid-gap: 1rem;
   justify-content: space-evenly;
@@ -17,33 +17,9 @@ body {
   "lasttrick lastnews"
 
 }
-.container-bottom-homepage{
-  display: grid;
-  justify-content: space-evenly;
-
-}
-
-@media screen and (max-width: variables.$breakpoint-tablet) {
-  .container-top-homepage {
-    grid-template-areas:
-    "lastnews"
-    "lasttrick"
-
-  }
-}
 
 
-.article--LastTrick {
-  grid-area: lasttrick;
-}
 
-.lastNews-card {
-  grid-area: lastnews;
-}
-
-.groups-card{
-
-}
 
 
 .container-show-trick {

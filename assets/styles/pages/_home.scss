@@ -1,1 +1,46 @@
 @use "assets/styles/sass-utils/variables";
+
+.container{
+  display: grid;
+  row-gap: 2rem;
+}
+
+.container__homepage{
+  background: url('/assets/images/construction-mur-bois-naturel-landes.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  margin : 50px 50px 50px 50px ;
+
+    a:hover{
+      filter: brightness(95%);
+    }
+
+}
+
+.container {
+
+}
+
+@media screen and (max-width: variables.$breakpoint-desktop) {
+  .container {
+
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+  .container__homepage {
+    margin : 50px 25px 50px 25px ;
+    grid-template-areas:
+    "lastnews"
+    "lasttrick"
+
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-smartphone) {
+  .container {
+
+  }
+}
