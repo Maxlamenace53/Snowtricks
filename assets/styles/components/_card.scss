@@ -1,0 +1,19 @@
+.card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card__logo{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+
+  svg{
+    margin: 0;
+    padding: 0;
+  }
+
+}
+

@@ -1,15 +1,11 @@
-@use "normalize.css/normalize";
-//base
-@use 'base/_reset';
-@use 'base/_background';
-@use 'base/_typographie';
 
-//components
-@use 'components/_buttons';
-@use 'components/_carrousel.scss';
-@use 'components/_cardLastTrick.scss';
-@use 'components/_cardLastNews.scss';
-@use 'components/_cardGroups.scss';
+
+//base
+@use "normalize.css/normalize";
+@use "base/colors";
+@use 'base/_typographie';
+@use 'base/_background';
+
 
 //layout
 @use 'layout/_footer.scss';
@@ -19,6 +15,17 @@
 @use 'layout/_navigation.scss';
 @use 'layout/_sidebar.scss';
 @use "layout/_container.scss";
+
+
+//components
+@use 'components/_buttons';
+@use 'components/_carrousel.scss';
+@use "components/_card.scss";
+@use 'components/_cardLastTrick.scss';
+@use 'components/_cardLastNews.scss';
+@use 'components/_cardGroups.scss';
+
+
 
 //pages
 @use 'pages/_contact.scss';

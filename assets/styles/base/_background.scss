@@ -1,20 +1,16 @@
 @use '../sass-utils/variables';
+@use "./assets/styles/base/colors";
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-}
 
 body{
-  background-color:variables.$color-background;
+  background-color:colors.$color-background;
 
 }
 
-
-
+a {
+  text-decoration: none;
+  color: white;
+}
 
 
 

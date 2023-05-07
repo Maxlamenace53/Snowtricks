@@ -4,10 +4,11 @@
 
 
 {% block body %}
-    {{ dump(trick) }}
-    <h1>Create new tricks</h1>
-
+   {#{{ dump(trick) }} #}
+    <h1>Crée nous le meilleur Trick !</h1>
+    <h2>A toi de jouer !</h2>
+<div class="container container-new-trick">
     {{ include('trick/_form.html.twig') }}
-
+</div>
     <a href="{{ path('app_trick_index') }}">back to list</a>
 {% endblock %}
