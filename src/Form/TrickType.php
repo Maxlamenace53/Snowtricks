@@ -25,7 +25,9 @@ class TrickType extends AbstractType
             ->add('nameTrick', TextType::class)
             ->add('description', TextareaType::class)
             ->add('mainPhoto', FileType::class,[
-                'data_class' => null
+                'data_class' => null,
+                'attr'=>['onchange'=>'readURL(this);']
+
             ])
           /*  ->add('creationDate')
             ->add('user', EntityType::class, [

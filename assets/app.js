@@ -15,3 +15,19 @@ import './styles/style.scss';
 import './bootstrap';
 
 //registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
+
+
+function readURL(input) { //nom de la function à appeler dans l'attribut onchange de l'input
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('blah').setAttribute('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+window.readURL = readURL;
+
