@@ -4,6 +4,7 @@
 {% block title %}profil de {{ app.user.nickname }}{% endblock %}
 
 {% block body %}
+<div class="container__homepage" >
     <h1>Hey {{ app.user.nickname }} Voila ton espace rien qu'à toi !</h1>
 
     <table class="table">
@@ -44,5 +45,5 @@
 
 
     <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifié son profil</a>
-
+</div>
 {% endblock %}

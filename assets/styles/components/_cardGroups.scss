@@ -1,0 +1,77 @@
+@use '/assets/styles/base/colors';
+@use '../sass-utils/variables';
+
+.card--groups {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.article__content--groups {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  height: 170px;
+  margin: 2rem;
+  gap: 0.5rem;
+
+
+}
+
+
+.article__user__name--groups {
+  rotate: 15deg;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 24px;
+  color: black;
+
+  img:hover {
+    rotate: -10deg;
+  }
+}
+
+.article__user--groups {
+
+  background-color: green;
+  rotate: -10deg;
+  height: 105px;
+  padding-left: 50px;
+}
+
+.article__gallery--groups{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #00BAF0;
+  height: 160px;
+  width: 400px;
+}
+
+.article__gallery__photo--groups {
+  height: 140px;
+}
+
+
+@media screen and (max-width: variables.$breakpoint-desktop) {
+
+}
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+  .article__content--groups {
+
+  }
+}
+
+@media screen and (max-width: variables.$breakpoint-smartphone) {
+  .article__content--groups {
+    width: 200px;
+    margin : 10px;
+  }
+  .article__gallery--groups {
+    visibility: hidden;
+  }
+}

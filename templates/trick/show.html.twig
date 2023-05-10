@@ -61,9 +61,11 @@
         </footer>
 
         <div class="content trick-button">
-            <a href="{{ path('app_trick_index') }}">back to list</a>
+            <a href="{{ path('app_trick_index') }}"> Liste des tricks</a>
+            {% if app.user  %}
+                <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">Modifier</a>
+            {% endif %}
 
-            <a href="{{ path('app_trick_edit', {'id': trick.id}) }}">edit</a>
         </div>
         {# {{ include('trick/_delete_form.html.twig') }} #}
     </div>

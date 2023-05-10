@@ -2,21 +2,21 @@
 
 {% block title %}Acceuil Snowtricks!{% endblock %}
 
+
 {% block body %}
 
-    <section class="container__homepage">
+
+    <section class="container__homepage--top">
         {% include 'default/_card_lastTrick.html.twig' %}
         {% include 'default/_card_lastNews.html.twig' %}
-        {#  {% include 'default/_card_lastNews.html.twig' %}#}
-        {# {% include 'default/_card_lastVideo.html.twig' %}#}
-        {# {% include 'default/_card_lastPhoto.html.twig' %} #}
+
     </section>
 
 
 
 
-    <section class="container__homepage">
-        {% include 'default/_card_lastTrick.html.twig' %}
+    <section class="container__homepage--bottom">
+        {% include 'default/_card_groups.html.twig' %}
     </section>
 
 

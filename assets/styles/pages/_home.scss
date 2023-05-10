@@ -1,26 +1,38 @@
 @use "assets/styles/sass-utils/variables";
 
-.container{
+.container {
   display: grid;
   row-gap: 2rem;
 }
 
-.container__homepage{
+.container__homepage--top {
   background: url('/assets/images/construction-mur-bois-naturel-landes.jpg');
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  margin: 50px 50px 50px 50px;
+  padding-bottom: 20px;
+
+  a:hover {
+    filter: brightness(95%);
+  }
+
+
+}
+.container__homepage--bottom{
+  background: url('/assets/images/construction-mur-bois-naturel-landes.jpg');
+  display: grid;
+  grid-row: auto;
+  justify-content: center;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 20px;
   margin : 50px 50px 50px 50px ;
-
-    a:hover{
-      filter: brightness(95%);
-    }
-
-}
-
-.container {
-
 }
 
 @media screen and (max-width: variables.$breakpoint-desktop) {
@@ -31,7 +43,8 @@
 
 @media screen and (max-width: variables.$breakpoint-tablet) {
   .container__homepage {
-    margin : 50px 25px 50px 25px ;
+    margin: 50px 25px 50px 25px;
+    justify-content: center;
     grid-template-areas:
     "lastnews"
     "lasttrick"
@@ -40,7 +53,10 @@
 }
 
 @media screen and (max-width: variables.$breakpoint-smartphone) {
-  .container {
-
+  .container__homepage--top {
+  margin : 0;
+  }
+  .container__homepage--bottom {
+    margin : 0;
   }
 }

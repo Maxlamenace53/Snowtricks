@@ -1,40 +1,35 @@
 @use "assets/styles/sass-utils/variables";
 
 .content {
+  display: block;
   border-radius: 20px;
   background: rgba(255, 255, 255, 1);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   padding : 5px;
 
-   .trick-photo-main img{
-    height: 100%;
-  }
-
-}
-
-.trick-comment{
-  overflow: hidden;
-}
-
-.trick-gallery{
-  overflow: hidden;
-  .gallery{
-    display: flex;
-
-
 
   }
+
+.container-show-trick {
+  display: grid;
+  justify-items: stretch;
+  padding: 1rem;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  grid-template:
+  "title title title"
+  "photo descr descr"
+  "gallery gallery comment"
+  "videos videos comment"
+  "button button comment "
+  "footer footer footer"
+
+
 }
-
-.trick-videos{
-  display: flex;
-  overflow: hidden;
-}
-
-
 
 
 .trick-title {
+  grid-area: title;
   position: sticky;
   display: flex;
   flex-wrap: wrap;
@@ -45,6 +40,116 @@
   border-radius: 20px;
   background: rgba(45, 76, 115, 1);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  justify-items: stretch;
+
+}
+
+.trick-photo-main {
+  grid-area: photo;
+  overflow: auto;
+  width: 310px;
+  height: 340px;
+}
+
+.trick-description {
+  grid-area: descr;
+  height: 340px;
+}
+
+.trick-gallery {
+  grid-area: gallery;
+
+  height: 320px;
+}
+
+.trick-videos {
+  grid-area: videos;
+  display: flex;
+  overflow: hidden;
+  height: 320px;
+}
+
+.trick-comment {
+  grid-area: comment;
+  overflow: auto;
+  width: 429px;
+  height: 672px;
+}
+
+.trick-footer {
+  grid-area: footer;
+
+}
+
+.trick-button {
+  grid-area: button;
+  & a {
+    color: black;
+  }
+}
+
+.trick-date-user{
+  grid-area: dateUser;
+}
+
+
+
+@media screen and (max-width: variables.$breakpoint-tablet) {
+  .container-show-trick {
+    justify-items: center;
+    grid-template-columns: minmax(auto, 250px) minmax(250px, 1fr);
+    grid-template:
+  "title title"
+  "photo photo"
+  "descr descr"
+  "gallery gallery"
+  "videos videos"
+  "comment comment"
+  "button button "
+  "footer footer "
+  }
+  .trick-comment {
+    width: 310px;
+    height: 672px;
+  }
+  .trick-description {
+    width: 310px;
+  }
+  .trick-footer {
+    width: 310px;
+  }
+  .trick-gallery {
+    width: 310px;
+  }
+  .trick-videos {
+    width: 310px;
+  }
+  .trick-button {
+    width: 310px;
+  }
+
+
+}
+
+
+
+.trick-gallery{
+  overflow: auto;
+  .gallery{
+    display: flex;
+
+
+
+  }
+}
+
+
+
+
+
+
+.trick-title {
+
 
 }
 
