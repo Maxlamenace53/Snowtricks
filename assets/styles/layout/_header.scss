@@ -9,6 +9,8 @@ footer h2 {
 
 header{
   position: relative;
+  gap: 0.52rem;
+
 }
 
 .top-nav img{
@@ -118,6 +120,10 @@ header{
 
 
 @media screen and (max-width: variables.$breakpoint-tablet) {
+  header svg{
+
+    width: 200px;
+  }
 
   .menu-button-container {
     display: flex;
@@ -163,9 +169,6 @@ header{
    margin-bottom: 0;
   }
 
-  .user-avatar img{
-
-  }
 
 
 }
@@ -178,6 +181,10 @@ header{
 
   .user-avatar h3{
     text-decoration-color:red;
+  }
+
+  header svg{
+    width: 121px;
   }
 
 
