@@ -38,17 +38,17 @@ class Trick
     #[ORM\JoinColumn(nullable: true, onDelete: "SET NULL")]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['remove'] ,targetEntity: Comment::class)]
     private Collection $comments;
 
     #[ORM\ManyToOne(inversedBy: 'tricks')]
     #[ORM\JoinColumn(nullable: false)]
     private ?GroupTrick $groupTrick = null;
 
-    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist'] ,targetEntity: PhotoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist','remove'] ,targetEntity: PhotoTrick::class)]
     private Collection $photoTricks;
 
-    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist'] ,targetEntity: VideoTrick::class)]
+    #[ORM\OneToMany(mappedBy: 'trick', cascade: ['persist', 'remove'] ,targetEntity: VideoTrick::class)]
     private Collection $videoTricks;
 
     #[ORM\Column(length: 255)]
@@ -56,6 +56,7 @@ class Trick
 
     public function __construct()
     {
+        $this->setCreationDate(new \DateTimeImmutable('now'));
         $this->comments = new ArrayCollection();
         $this->photoTricks = new ArrayCollection();
         $this->videoTricks = new ArrayCollection();
