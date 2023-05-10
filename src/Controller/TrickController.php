@@ -35,7 +35,6 @@ class TrickController extends AbstractController
         $form->handleRequest($request);
 
         $trick->setUser($this->getUser() );
-        $trick->setCreationDate(new \DateTimeImmutable('now'));
 
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($form->get('photoTricks')->all() as $key => $photoForm) {

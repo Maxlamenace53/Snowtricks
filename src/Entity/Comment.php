@@ -93,6 +93,10 @@ class Comment
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->setCreateDate(new \DateTimeImmutable('now'));
+    }
 
 
 }

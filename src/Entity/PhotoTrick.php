@@ -92,4 +92,9 @@ class PhotoTrick
 
         return $this;
     }
+
+    public function __construct()
+    {
+        $this->setDateAdded(new \DateTimeImmutable('now'));
+    }
 }

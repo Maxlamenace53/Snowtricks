@@ -1,6 +1,6 @@
 // assets/app.js
 //vueJs
-import { registerVueControllerComponents } from '@symfony/ux-vue';
+//import { registerVueControllerComponents } from '@symfony/ux-vue';
 /*
  * Welcome to your app's main JavaScript file!
  *
