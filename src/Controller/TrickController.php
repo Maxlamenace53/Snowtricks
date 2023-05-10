@@ -62,6 +62,8 @@ class TrickController extends AbstractController
 
             $trickRepository->save($trick, true);
 
+            $this->addFlash('success','Ton trick'.$trick->getNameTrick().'a bien été créée !');
+
             return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
 

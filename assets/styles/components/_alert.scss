@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "assets/styles/base/_colors.scss";
+@use "assets/styles/base/_typographie.scss";
+
+.alert {
+  position: absolute;
+  display: flex;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: red;
+  top:82px;
+  right: 2px;
+
+  &.alert-primary {
+    color: colors.$color-primary;
+    background-color: color.scale(colors.$color-primary, $lightness: 80%);
+    border-color: color.scale(colors.$color-primary, $lightness: 20%);
+  }
+
+  &.alert-secondary {
+    color: colors.$color-secondary;
+    background-color: color.scale(colors.$color-secondary, $lightness: 80%);
+    border-color: color.scale(colors.$color-secondary, $lightness: 20%);
+  }
+
+  &.alert-success {
+    color: colors.$color-success;
+    background-color: color.scale(colors.$color-success, $lightness: 80%);
+    border-color: color.scale(colors.$color-success, $lightness: 20%);
+  }
+}
