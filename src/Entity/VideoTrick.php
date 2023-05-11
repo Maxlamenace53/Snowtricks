@@ -25,7 +25,7 @@ class VideoTrick
     private ?Trick $trick = null;
 
     #[ORM\ManyToOne(inversedBy: 'videoTricks')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true, onDelete: "SET NULL")]
     private ?User $user = null;
 
     public function getId(): ?int
