@@ -72,7 +72,7 @@ class TrickController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_trick_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_trick_show', methods: ['GET'])]
     public function show(Trick $trick): Response
     {
 
@@ -81,7 +81,7 @@ class TrickController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_trick_edit', methods: ['GET', 'POST'])]
+    #[Route('/{slug}/edit', name: 'app_trick_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, FileUploader $fileUploader, PhotoTrickRepository $photoTrickRepository): Response
     {
         $form = $this->createForm(TrickType::class, $trick);
@@ -121,7 +121,7 @@ class TrickController extends AbstractController
 
 
 
-    #[Route('/{id}', name: 'app_trick_delete', methods: ['POST'])]
+    #[Route('/{slug}', name: 'app_trick_delete', methods: ['POST'])]
     public function delete(Request $request, Trick $trick, TrickRepository $trickRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$trick->getId(), $request->request->get('_token'))) {

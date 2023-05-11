@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -27,6 +28,11 @@ class Trick
     )]
     #[ORM\Column(length: 255)]
     private ?string $nameTrick = null;
+
+    #[ORM\Column(length: 128, unique: true)]
+    #[Gedmo\Slug(fields: ['nameTrick'])]
+    private $slug;
+
 
     #[Assert\Length(
         min: 10,
@@ -237,5 +243,10 @@ class Trick
         $this->mainPhoto = $mainPhoto;
 
         return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
