@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Trick;
 use App\Entity\User;
 use Faker\Core\DateTime;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use http\Env\Request;
 use http\Env\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -23,7 +24,7 @@ class TrickType extends AbstractType
     {
         $builder
             ->add('nameTrick', TextType::class)
-            ->add('description', TextareaType::class)
+            ->add('description', CKEditorType::class)
             ->add('mainPhoto', FileType::class,[
                 'data_class' => null,
                 'attr'=>['onchange'=>'readURL(this);']

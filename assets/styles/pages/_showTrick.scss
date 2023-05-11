@@ -53,6 +53,7 @@
 
 .trick-description {
   grid-area: descr;
+  overflow:scroll;
   height: 340px;
 }
 

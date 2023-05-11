@@ -28,6 +28,10 @@ class Trick
     #[ORM\Column(length: 255)]
     private ?string $nameTrick = null;
 
+    #[Assert\Length(
+        min: 10,
+        minMessage: 'En voila une description trop courte !'
+    )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
