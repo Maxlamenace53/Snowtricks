@@ -47,8 +47,8 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
             $commment
                 ->setUser($userArray[$userArrayRand])
                 ->setTrick($trickArray[$trickArrayRand])
-                ->setComment($this->faker->paragraph)
-                ->setCreateDate(new \DateTimeImmutable($this->faker->date()));
+                ->setComment($this->faker->text(200, true))
+                ->setCreateDate(new \DateTimeImmutable($this->faker->date));
             $manager->persist($commment);
 
         }

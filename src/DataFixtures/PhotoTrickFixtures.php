@@ -42,7 +42,7 @@ class PhotoTrickFixtures extends Fixture implements DependentFixtureInterface
             $trickArrayRand = array_rand($trickArray,1);
             $userArrayRand = array_rand($userArray, 1);
             $photo = new PhotoTrick();
-            $photo->setPhoto($this->faker->image('public/uploads', 640, 480, null, false))
+            $photo->setPhoto($this->faker->image('public/uploads',640,480, null, false, true,'Photo secondaire du trick '.$trickArray[$trickArrayRand]))
                 ->setTrick($trickArray[$trickArrayRand])
                 ->setUser($userArray[$userArrayRand])
                 ->setDateAdded(new \DateTimeImmutable($this->faker->date()));

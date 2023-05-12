@@ -27,7 +27,7 @@ class UserFixtures extends Fixture
         ->setNickname($this->faker->userName)
         ->setEmail('admin@mail.com')
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
-        ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
+        ->setAvatar($this->faker->image('public/uploads',640,480, null, false))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)->setIsVerified(true)
         ->setRoles(['ROLE_ADMIN']);
@@ -40,7 +40,7 @@ class UserFixtures extends Fixture
         ->setNickname($this->faker->userName)
         ->setEmail('max@mail.com')
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
-        ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
+        ->setAvatar($this->faker->image('public/uploads',150,150, null, false, true, 'Avatar de '.$user1->getNickname()))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)->setIsVerified(true)
          ->setRoles(['ROLE_USER']);
@@ -53,7 +53,7 @@ class UserFixtures extends Fixture
         ->setNickname($this->faker->userName)
         ->setEmail($this->faker->email)
         ->setPassword($this->hasher->hashPassword($admin, 'password'))
-        ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
+        ->setAvatar($this->faker->image('public/uploads',640,480, 'animals', false, true, ''.$user2->getNickname()))
         ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
         ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user2);
@@ -65,7 +65,7 @@ class UserFixtures extends Fixture
             ->setNickname($this->faker->userName)
             ->setEmail($this->faker->email)
             ->setPassword($this->hasher->hashPassword($admin, 'password'))
-            ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
+            ->setAvatar($this->faker->image('public/uploads',640,480, 'animals', false, true, ''.$user3->getNickname()))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user3);
@@ -77,7 +77,7 @@ class UserFixtures extends Fixture
             ->setNickname($this->faker->userName)
             ->setEmail($this->faker->email)
             ->setPassword($this->hasher->hashPassword($admin, 'password'))
-            ->setAvatar($this->faker->imageUrl(200, 200, 'cats', true, 'Faker'))
+            ->setAvatar($this->faker->image('public/uploads',640,480, 'animals', false, true, ''.$user4->getNickname()))
             ->setRegistrationDate(new \DateTimeImmutable($this->faker->date()))
             ->setDescription($this->faker->paragraph)->setIsVerified(true);
         $manager->persist($user4);
