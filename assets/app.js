@@ -31,3 +31,15 @@ function readURL(input) { //nom de la function à appeler dans l'attribut onchan
 
 window.readURL = readURL;
 
+function clean_textarea()
+{
+    //const newCommentSoumettre = document.getElementById("comment_soumettre");
+    const newComment = document.getElementById("comment_comment");
+    //const alert = document.getElementsByClassName("alert-success")[0];
+
+
+
+        newComment.value = "";
+}
+
+window.clean_textarea = clean_textarea;

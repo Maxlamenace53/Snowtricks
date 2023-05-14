@@ -53,9 +53,31 @@
 
         <div class="content trick-comment">
             <h3>Espace commentaire</h3>
-            <div class="comment" style="border: #222222">
-                {% for comment in trick.comments %}
-                    {{ comment.comment }}
+            <div class="spaceComment ">
+                {% if app.user %}
+                    <div>
+                        {{ form_start(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                {% else %}
+                    <div>
+                        <a href="{{ path('app_login') }}"><h4>Connectez-vous pour commenter</h4></a>
+                    </div>
+                {% endif %}
+
+                {% for comment in trick.comments | reverse %}
+
+                    <div class="spaceComment__content">
+                        <div class="spaceComment spaceComment__comment">
+                            {{ comment.comment }}
+                            {% if comment.user == app.user %}
+                                {{ include('comment/_delete_form.html.twig') }}
+                            {% endif %}
+                        </div>
+                        <div>
+                            {{ comment.user }} {{ comment.createDate.format('Y m d') }}
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>

@@ -26,7 +26,7 @@ class Comment
         maxMessage: 'Ooohh trop long !',
     )]
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $comment = null;
+    private ?string $comment = '';
 
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]

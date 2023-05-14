@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Trick;
+use App\Form\CommentType;
 use App\Form\TrickType;
+use App\Repository\CommentRepository;
 use App\Repository\PhotoTrickRepository;
 use App\Repository\TrickRepository;
 use App\Service\FileUploader;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,12 +74,28 @@ class TrickController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}', name: 'app_trick_show', methods: ['GET'])]
-    public function show(Trick $trick): Response
+    #[Route('/{slug}', name: 'app_trick_show', methods: ['GET', 'POST'])]
+    public function show(Request $request,Trick $trick, CommentRepository $commentRepository): Response
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        $comment->setUser($this->getUser() );
+        $comment->setTrick($trick);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            //dd($comment);
+            $commentRepository->save($comment, true);
+            $this->addFlash('success','Ton commentaire à bien été crée');
+
+        }
+
 
         return $this->render('trick/show.html.twig', [
             'trick' => $trick,
+            'form' => $form,
         ]);
     }
 
@@ -125,6 +143,10 @@ class TrickController extends AbstractController
     public function delete(Request $request, Trick $trick, TrickRepository $trickRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$trick->getId(), $request->request->get('_token'))) {
+            foreach ($trick->getPhotoTricks() as $photoTrick)
+
+            unlink($this->getParameter(('uploads_path').'/'.$photoTrick->getPhoto()));
+
             $trickRepository->remove($trick, true);
         }
 
