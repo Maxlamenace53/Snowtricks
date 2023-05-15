@@ -36,7 +36,11 @@ class PhotoTrickFixtures extends Fixture implements DependentFixtureInterface
         $trick4 = $this->getReference('trick4');
         $trick5 = $this->getReference('trick5');
         $trick6 = $this->getReference('trick6');
-        $trickArray = [$trick1, $trick2, $trick3, $trick4, $trick5, $trick6];
+        $trick7 = $this->getReference('trick7');
+        $trick8 = $this->getReference('trick8');
+        $trick9 = $this->getReference('trick9');
+        $trick10 = $this->getReference('trick10');
+        $trickArray = [$trick1, $trick2, $trick3, $trick4, $trick5, $trick6,$trick7,$trick8,$trick9,$trick10];
 
         for ($i=1;$i<=30;$i++){
             $trickArrayRand = array_rand($trickArray,1);

@@ -34,7 +34,10 @@ class VideoTrickFixtures extends Fixture implements DependentFixtureInterface
         $trick4 = $this->getReference('trick4');
         $trick5 = $this->getReference('trick5');
         $trick6 = $this->getReference('trick6');
-
+        $trick7 = $this->getReference('trick7');
+        $trick8 = $this->getReference('trick8');
+        $trick9 = $this->getReference('trick9');
+        $trick10 = $this->getReference('trick10');
 
         //trick1
         $video1 = new VideoTrick();

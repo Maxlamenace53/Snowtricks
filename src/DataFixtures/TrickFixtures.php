@@ -26,76 +26,27 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         $groupeMedium = $this->getReference('groupe-medium');
         $groupeDifficile = $this->getReference('groupe-difficile');
         $groupeHard = $this->getReference('groupe-hard');
+        $groupArray = [$groupeEasy, $groupeMedium, $groupeDifficile, $groupeHard];
 
         $user1 = $this->getReference('user1');
         $user2 = $this->getReference('user2');
         $user3 = $this->getReference('user3');
         $user4 = $this->getReference('user4');
+        $userArray = [$user1, $user2, $user3, $user4];
 
-
-
-       $trick1= new Trick();
-       $trick1->setNameTrick($this->faker->country.$this->faker->colorName)
-        ->setDescription($this->faker->text)
-        ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-        ->setGroupTrick($groupeMedium)
-           ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick1->getNameTrick()))
-        ->setUser($user1);
-       $manager->persist($trick1);
-       $this->addReference('trick1', $trick1);
-
-        $trick2= new Trick();
-        $trick2->setNameTrick($this->faker->country.$this->faker->colorName)
-            ->setDescription($this->faker->paragraph)
-            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setGroupTrick($groupeHard)
-            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick2->getNameTrick()))
-            ->setUser($user1);
-        $manager->persist($trick2);
-        $this->addReference('trick2', $trick2);
-
-        $trick3= new Trick();
-        $trick3->setNameTrick($this->faker->country.$this->faker->colorName)
-            ->setDescription($this->faker->paragraph)
-            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setGroupTrick($groupeDifficile)
-            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick3->getNameTrick()))
-            ->setUser($user2);
-        $manager->persist($trick3);
-        $this->addReference('trick3', $trick3);
-
-        $trick4= new Trick();
-        $trick4->setNameTrick($this->faker->country.$this->faker->colorName)
-            ->setDescription($this->faker->paragraph)
-            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setGroupTrick($groupeEasy)
-            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick4->getNameTrick()))
-            ->setUser($user3);
-        $manager->persist($trick4);
-        $this->addReference('trick4', $trick4);
-
-        $trick5= new Trick();
-        $trick5->setNameTrick($this->faker->country.$this->faker->colorName)
-            ->setDescription($this->faker->paragraph)
-            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setGroupTrick($groupeEasy)
-            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick5->getNameTrick()))
-            ->setUser($user4);
-        $manager->persist($trick5);
-        $this->addReference('trick5', $trick5);
-
-        $trick6= new Trick();
-        $trick6->setNameTrick($this->faker->country.$this->faker->colorName)
-            ->setDescription($this->faker->paragraph)
-            ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
-            ->setGroupTrick($groupeHard)
-            ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false,true, 'Photo principal du trick '.$trick6->getNameTrick()))
-            ->setUser($user3);
-        $manager->persist($trick6);
-        $this->addReference('trick6', $trick6);
-
-
-
+        for ($i =1; $i<=10; $i++ ) {
+            $groupArrayRand = array_rand($groupArray, 1);
+            $userArrayRand = array_rand($userArray, 1);
+            $trick = new Trick();
+            $trick->setNameTrick($this->faker->country . $this->faker->colorName)
+                ->setDescription($this->faker->text)
+                ->setCreationDate(new \DateTimeImmutable($this->faker->date()))
+                ->setGroupTrick($groupArray[$groupArrayRand])
+                ->setMainPhoto($this->faker->image('public/uploads', 640, 480, null, false, true, 'Photo principal du trick ' . $trick->getNameTrick()))
+                ->setUser($userArray[$userArrayRand]);
+            $manager->persist($trick);
+            $this->addReference('trick' . $i, $trick);
+        }
 
 
        $manager->flush();
@@ -106,3 +57,5 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
         return [GroupFixtures::class, UserFixtures::class];
     }
 }
+
+
