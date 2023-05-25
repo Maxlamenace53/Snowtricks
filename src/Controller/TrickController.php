@@ -10,6 +10,9 @@ use App\Repository\CommentRepository;
 use App\Repository\PhotoTrickRepository;
 use App\Repository\TrickRepository;
 use App\Service\FileUploader;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Entity;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,7 +78,7 @@ class TrickController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_trick_show', methods: ['GET', 'POST'])]
-    public function show(Request $request,Trick $trick, CommentRepository $commentRepository): Response
+    public function show( EntityManagerInterface $manager ,Request $request,Trick $trick, CommentRepository $commentRepository, PaginatorInterface $paginator): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -85,17 +88,30 @@ class TrickController extends AbstractController
         $comment->setTrick($trick);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             //dd($comment);
             $commentRepository->save($comment, true);
+            unset($form);
+            $form = $this->createForm(CommentType::class);
             $this->addFlash('success','Ton commentaire à bien été crée');
 
         }
 
 
+        $dql   = "SELECT c FROM App\Entity\Comment c WHERE c.trick = ".$trick->getId()." ORDER BY c.createDate DESC";
+        $query = $manager->createQuery($dql);
+
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
+
         return $this->render('trick/show.html.twig', [
             'trick' => $trick,
             'form' => $form,
+            'pagination'=>$pagination
         ]);
     }
 

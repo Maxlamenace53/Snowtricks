@@ -72,6 +72,10 @@
 
 
 //commentaire
+.spaceComment__content--subscribe{
+  text-align: center;
+}
+
 textarea{
   width: 380px;
   height: 89.2px;
@@ -99,17 +103,60 @@ textarea{
 }
 
 .spaceComment__content{
-  width: 380px;
-  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
   height: 89.2px;
-  padding: 10px;
-  margin-bottom: 1rem;
+  padding: 7px;
+  margin-bottom: 0.5rem;
   border: solid 1px #6d28d9 ;
   border-radius: 20px ;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
   gap: 1rem;
 
 }
+.spaceComment__left{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 400px;
+  .spaceComment__date{
+    color: rgb(134, 134, 134);
+    font-family: 'sourcesanspro';
+    font-style: italic;
+    font-size: 12px;
+    margin: 6px 0 ;
+    p{
+        margin: 0 0 0 0;
+    }
+
+  }
+
+
+}
+
+.spaceComment__right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  img{
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+  }
+
+}
+
+
+
+
+
 
 
 

@@ -60,25 +60,33 @@
                         {{ form_end(form) }}
                     </div>
                 {% else %}
-                    <div>
-                        <a href="{{ path('app_login') }}"><h4>Connectez-vous pour commenter</h4></a>
+                    <div class="spaceComment__content--subscribe">
+                        <a href="{{ path('app_login') }}"><h4>Connectez-vous pour écrire un commentaire</h4></a>
+                        <a href="{{ path('app_register') }}"><h4>Inscrivez vous en cliquant ici</h4></a>
                     </div>
                 {% endif %}
-
-                {% for comment in trick.comments | reverse %}
-
-                    <div class="spaceComment__content">
-                        <div class="spaceComment spaceComment__comment">
+                Nombre de commentaires : {{ pagination.getTotalItemCount }} commentaire(s)
+                {% for comment in pagination %}
+                    <div id="one-comment" class="spaceComment__content">
+                        <div class="spaceComment spaceComment__left">
+                            <div class="spaceComment spaceComment__date">
+                               <p>Publié le {{ comment.createDate.format('Y m d') }}</p>
+                            </div>
                             {{ comment.comment }}
                             {% if comment.user == app.user %}
                                 {{ include('comment/_delete_form.html.twig') }}
                             {% endif %}
                         </div>
-                        <div>
-                            {{ comment.user }} {{ comment.createDate.format('Y m d') }}
-                        </div>
+                        <div class="spaceComment spaceComment__right" >
+                            <img src="{{ asset(uploads_dir ~ comment.user.avatar ) }}" alt="Avatar de {{ comment.user.nickname }}">
+                            <span>{{ comment.user.nickname }}</span>
+                    </div>
+
                     </div>
                 {% endfor %}
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
             </div>
         </div>
 
