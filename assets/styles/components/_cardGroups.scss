@@ -43,6 +43,7 @@
 
 .article__gallery--groups{
   display: flex;
+  overflow : scroll;
   justify-content: center;
   align-items: center;
   gap: 1rem;
