@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Comment;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -22,6 +23,11 @@ class CommentType extends AbstractType
                     'label'=> false,
 
             ]
+            ])
+            ->add('captcha', CaptchaType::class,[
+                'disabled' => true,
+                'label' => false,
+                'invalid_message' => 'Mauvais captcha',
             ])
             ->add('soumettre', SubmitType::class)
 
