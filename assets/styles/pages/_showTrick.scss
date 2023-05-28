@@ -31,6 +31,7 @@
 .trick-title {
   grid-area: title;
   position: sticky;
+  z-index: 20;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -53,24 +54,37 @@
   overflow: auto;
   width: 310px;
   height: 340px;
-  & h3{
+
+  a {
+
+    padding: 0;
+  }
+
+  h3 {
     text-align: center;
     font-size: 36px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
-    & img {
-        width: 80%;
-        height: 80%;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .trick-description {
   grid-area: descr;
-  overflow:scroll;
+  overflow: scroll;
   height: 340px;
+
+  & h3 {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .trick__gallery {
@@ -143,26 +157,52 @@
 }
 
 .trick-videos {
-  grid-area: videos;
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
+  position: relative;
+  grid-area: videos;
+  justify-content: space-around;
   height: 320px;
+  width: 815px;
+
+  h3 {
+    position: absolute;
+    bottom: 274px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 36px;
+    z-index: 5;
+    margin: 5px auto;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+  }
+
+
 }
 
 
 //commentaire
-.spaceComment__content--subscribe{
+.spaceComment__content--subscribe {
   text-align: center;
 }
 
-textarea{
+textarea {
   width: 380px;
   height: 89.2px;
-  border: solid 1px #6d28d9 ;
-  border-radius: 20px ;
+  border: solid 1px #6d28d9;
+  border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   gap: 1rem;
+
 }
 
 .trick-comment {
@@ -171,47 +211,56 @@ textarea{
   overflow: auto;
   width: 429px;
   height: 800px;
-  & a{
+
+  .btn {
+    padding: 0;
+    font-size: 15px;
+  }
+
+  a {
     color: black;
   }
-  & h3{
+
+  h3 {
     text-align: center;
     font-size: 36px;
     margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
 
-.spaceComment__content{
-  display: flex;
+.spaceComment__content {
+  display: flex ;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   overflow: auto;
-  height: 89.2px;
+  height: 105px;
   padding: 7px;
   margin-bottom: 0.5rem;
-  border: solid 1px #6d28d9 ;
-  border-radius: 20px ;
+  border: solid 1px #6d28d9;
+  border-radius: 20px;
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
   gap: 1rem;
 
 }
-.spaceComment__left{
-    position: relative;
-    display: flex;
-    flex-direction: column;
 
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 400px;
-  .spaceComment__date{
+.spaceComment__left {
+  position: relative;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  width: 294px;
+
+  .spaceComment__date {
     color: rgb(134, 134, 134);
     font-family: 'sourcesanspro';
     font-style: italic;
     font-size: 12px;
-    margin: 6px 0 ;
-    p{
-        margin: 0 0 0 0;
+    margin: 0;
+
+    p {
+      margin: 0 0 0 0;
     }
 
   }
@@ -219,29 +268,21 @@ textarea{
 
 }
 
-.spaceComment__right{
+.spaceComment__right {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  img{
-    height: 50%;
-    width: 50%;
-    border-radius: 50%;
+  justify-content: space-evenly;
+  width: 140px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 50px;
+    border-radius: 25%;
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .trick-footer {
   grid-area: footer;
@@ -250,23 +291,29 @@ textarea{
 
 .trick-button {
   grid-area: button;
-  & a {
-    color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow: hidden;
+
+  .btn {
+    padding: 3px 20px;
+    font-size: 13px;
   }
 }
 
-.trick-date-user{
+.trick-date-user {
   grid-area: dateUser;
 }
 
-
-
-
-
-
-
-
-
+@media screen and (max-width: variables.$breakpoint-desktop) {
+  .trick__gallery {
+    width: 486px;
+  }
+  .trick-videos {
+    width: 486px;
+  }
+}
 
 @media screen and (max-width: variables.$breakpoint-tablet) {
   .container-show-trick {
@@ -287,76 +334,70 @@ textarea{
     height: 672px;
 
   }
-  .spaceComment__content{
+  .spaceComment__content {
     width: auto;
-    height: 89.2px;
+    height: 158.2px;
   }
+
   .trick-description {
-    width: 310px;
+    width: 310px
   }
+
   .trick-footer {
+    width: auto
+  }
+
+  .trick-button {
     width: 310px;
   }
-  .trick-gallery {
+  h2, h4 {
+    margin: 0;
+
+  }
+  .trick__gallery {
     width: 310px;
   }
   .trick-videos {
     width: 310px;
   }
-  .trick-button {
-    width: 310px;
-  }
-
-
 
 }
-
-
-
-.trick-gallery{
-  overflow: auto;
-  .gallery{
-    display: flex;
-
-
-
-  }
-}
-
-
-
-
-
-
-.trick-title {
-
-
-}
-
-@media screen and (max-width: variables.$breakpoint-desktop) {
-
-}
-
-@media screen and (max-width: variables.$breakpoint-tablet) {
-  h2, h4 {
-    margin: 0;
-
-  }
-
-  }
-
-
 
 @media screen and (max-width: variables.$breakpoint-smartphone) {
-  .trick-title{
+  .trick-title {
     flex-direction: column;
   }
-h4{
-  font-size: 10px;
-}
-  h2{
+  h4 {
+    font-size: 10px;
+  }
+  h2 {
     font-size: 20PX;
   }
+
+.spaceComment__right img {
+  max-height: 100%;
+  max-width: 100%;
+  height: 50%;
+  width: 50%;
+}
+
+  .trick-title  {
+    h2{
+      font-size: 20px;
+    }
+    h1{
+      margin: 0px;
+      font-size: 23px;
+    }
+    img {
+      height: 60%;
+    }
+    header svg{
+      width: 68px;
+    }
+  }
+
+
 }
 
 
