@@ -18,8 +18,10 @@
 
         <div class="content trick-photo-main">
             <h3>photo principal</h3>
-            <img src="{{ asset(uploads_dir ~ trick.mainPhoto ) }}" alt="Photo principal">
-
+            <a href="#img1"><img src="{{ asset(uploads_dir ~ trick.mainPhoto ) }}" alt="Photo principal"></a>
+            <a href="#" class="lightbox" id="img1">
+                <span style="background-image: url({{ asset(uploads_dir ~ trick.mainPhoto) }})"></span>
+            </a>
         </div>
 
         <article class="content trick-description">
