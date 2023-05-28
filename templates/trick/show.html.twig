@@ -31,14 +31,24 @@
         </article>
 
 
-        <div class="content trick-gallery">
+        <div class="content trick__gallery swiper mySwiper">
             <h3>Gallerie Photos</h3>
-            <div class="gallery">
+            <div class="swiper-wrapper">
                 {% for photo in trick.photoTricks %}
+                       <div class="swiper-slide" >
+                         <img  src="{{ asset(uploads_dir ~ photo.photo ) }}" alt="Photo secondaire">
 
-                    <img src="{{ asset(uploads_dir ~ photo.photo ) }}" alt="Photo secondaire">
-
+                         </div>
                 {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
             </div>
         </div>
 
