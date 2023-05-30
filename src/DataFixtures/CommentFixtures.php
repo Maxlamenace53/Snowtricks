@@ -52,7 +52,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
                 ->setUser($userArray[$userArrayRand])
                 ->setTrick($trickArray[$trickArrayRand])
                 ->setComment($this->faker->text(200, true))
-                ->setCreateDate(new \DateTimeImmutable($this->faker->date));
+                ->setCreateDate(new \DateTimeImmutable($this->faker->dateTimeBetween('-10 years', 'now')->format('Y-m-d H:i:s')  ));
             $manager->persist($commment);
 
         }

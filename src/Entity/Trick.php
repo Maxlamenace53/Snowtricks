@@ -42,6 +42,7 @@ class Trick
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeInterface $creationDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'tricks')]
@@ -66,7 +67,7 @@ class Trick
 
     public function __construct()
     {
-        $this->setCreationDate(new \DateTimeImmutable('now'));
+        //$this->setCreationDate(new \DateTimeImmutable('now'));
         $this->comments = new ArrayCollection();
         $this->photoTricks = new ArrayCollection();
         $this->videoTricks = new ArrayCollection();
@@ -102,7 +103,7 @@ class Trick
         return $this;
     }
 
-    public function getCreationDate(): \DateTimeInterface
+    public function getCreationDate(): ?\DateTimeInterface
     {
         return $this->creationDate;
     }

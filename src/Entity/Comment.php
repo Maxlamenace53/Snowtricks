@@ -6,6 +6,7 @@ use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Faker\Core\DateTime;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
@@ -30,6 +31,7 @@ class Comment
 
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeInterface $createDate =null ;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
@@ -93,10 +95,10 @@ class Comment
         return $this;
     }
 
-    public function __construct()
+ /*   public function __construct()
     {
         $this->setCreateDate(new \DateTimeImmutable('now'));
-    }
+    }*/
 
 
 }

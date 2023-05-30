@@ -181,10 +181,21 @@ header{
 
   .user-avatar h3{
     text-decoration-color:red;
+    position: absolute;
+    top: 50px;
+    right: 77px
   }
 
-  header svg{
-    width: 121px;
+  .top-nav{
+     height: 100px;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+  }
+  .menu-button{
+    position: absolute;
+    top: 110px;
   }
 
 
