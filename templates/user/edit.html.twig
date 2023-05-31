@@ -3,9 +3,15 @@
 {% block title %}Edit user{% endblock %}
 
 {% block body %}
-    <h1>Edit user</h1>
+    <h1>Modifié les paramètres utilisateurs</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.avatar) }}
+    <img src="{{ asset(uploads_dir ~ user.avatar) }}" class="img-thumbnail" alt="">
+    {{ form_row(form.removeAvatar) }}
+    <button class="btn" type="submit">Modifier</button>
+    {{ form_end(form) }}
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+{# {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} #}
     <p>Trick crée :</p>
 
     {% for trick in user.tricks  %}

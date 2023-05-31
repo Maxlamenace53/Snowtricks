@@ -6,7 +6,9 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\TrickRepository;
 use App\Repository\UserRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,7 +35,7 @@ class UserController extends AbstractController
 
 
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new(Request $request, UserRepository $userRepository, FileUploader $fileUploader): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -42,6 +44,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
 
+            $this->addFlash('success', 'Félicitation'.$user->getNickname() .'Votre compte a bien été créé !');
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -62,12 +65,24 @@ class UserController extends AbstractController
 
 
     #[Route('/{slug}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    public function edit(Request $request, User $user, UserRepository $userRepository, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $avatar = $form->get('avatar')->getData();
+            if($avatar){
+                $fileName = $fileUploader->upload($avatar);
+                $user->setAvatar($fileName);
+            }else if ($form->get('removeAvatar')->getData()){
+                unlink($this->getParameter('uploads_path').'/'.$user->getAvatar());
+                $user->setAvatar(null);
+            }
+
+
+
             $userRepository->save($user, true);
 
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);

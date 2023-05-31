@@ -3,8 +3,11 @@
 namespace App\Form;
 
 use App\Entity\User;
+use http\Env\Url;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,11 +26,15 @@ class UserType extends AbstractType
             ->add('lastname')
             ->add('nickname')
             ->add('description',TextareaType::class)
-            ->add('registrationDate')
-            ->add('avatar',TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'URL de votre avatar'
-                ]
+            ->add('avatar', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'data_class' => null,
+                'attr' => ['accept' => 'image/*']
+            ])
+            ->add('removeAvatar', CheckboxType::class, [
+                'required' => false,
+                'mapped' => false
             ])
         ;
     }

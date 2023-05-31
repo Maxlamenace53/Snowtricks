@@ -4,46 +4,46 @@
 {% block title %}profil de {{ app.user.nickname }}{% endblock %}
 
 {% block body %}
-<div class="container__homepage" >
-    <h1>Hey {{ app.user.nickname }} Voila ton espace rien qu'à toi !</h1>
+<div class="container" >
+    <h1 class="content">Hey {{ app.user.nickname }} Voila ton espace rien qu'à toi !</h1>
 
     <table class="table">
         <tbody>
 
             <tr>
-                <th>Email</th>
+                <th class="content">Email</th>
                 <td>{{ user.email }}</td>
             </tr>
 
             <tr>
-                <th>Firstname</th>
+                <th class="content">Firstname</th>
                 <td>{{ user.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th class="content">Lastname</th>
                 <td>{{ user.lastname }}</td>
             </tr>
             <tr>
-                <th>Nickname</th>
+                <th class="content" >Nickname</th>
                 <td>{{ user.nickname }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th class="content">Description</th>
                 <td>{{ user.description }}</td>
             </tr>
             <tr>
-                <th>RegistrationDate</th>
+                <th class="content">RegistrationDate</th>
                 <td>{{ user.registrationDate ? user.registrationDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
+                <th class="content">Avatar</th>
+                <td><img class="user_avatar" src="{{ asset(uploads_dir ~ user.avatar ) }}" alt="Photo principal"></td>
             </tr>
         </tbody>
     </table>
 
 
 
-    <a href="{{ path('app_user_edit', {'slug': user.slug}) }}">Modifié son profil</a>
+    <a class="btn" href="{{ path('app_user_edit', {'slug': user.slug}) }}">Modifié son profil</a>
 </div>
 {% endblock %}
