@@ -102,6 +102,19 @@
     </div>
     <div class="footer-inf">
         <h4>© 2023 Copyright: SnowTricks  </h4>
-        <h4><a href="">Conditions générales</a></h4>
+        <h4><a href="{{ path('app_general_condition') }}">Conditions générales</a></h4>
     </div>
+    <script>
+        window.axeptioSettings = {
+            clientId: "64785273f85b082feda5798a",
+            cookiesVersion: "snowtrick-fr",
+        };
+
+        (function(d, s) {
+            var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+            e.async = true; e.src = "//static.axept.io/sdk.js";
+            t.parentNode.insertBefore(e, t);
+        })(document, "script");
+    </script>
+
 </footer>
