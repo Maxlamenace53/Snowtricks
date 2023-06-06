@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\VideoTrickRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: VideoTrickRepository::class)]
 class VideoTrick
@@ -18,6 +19,7 @@ class VideoTrick
     private ?string $video = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeImmutable $dateAdded = null;
 
 

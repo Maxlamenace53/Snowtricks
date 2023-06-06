@@ -21,10 +21,9 @@
 <div class="content trick-photo-main">
     <h3>Photo principal</h3>
 
-    {% if trick is defined %}
-        <img src="{{ asset('uploads/' ~ trick.mainPhoto) }}" alt="your image"/>
-    {% endif %}
-          {{ form_row(form.mainPhoto) }}
+
+
+        {{ form_row(form.mainPhoto) }}
         <img id="blah" src="http://placehold.it/300" alt="your image"/>
 
 

@@ -16,9 +16,6 @@ class VideoTrickType extends AbstractType
     {
         $builder
             ->add('video',TextType::class)
-            ->add('dateAdded')
-            ->add('trick')
-            ->add('user')
         ;
     }
 

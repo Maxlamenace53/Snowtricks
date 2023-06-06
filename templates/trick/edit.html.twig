@@ -5,9 +5,78 @@
 {% block body %}
     <h1>Quelque chose ne va pas ?</h1>
 
-    {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
+   {{ form_start(form) }}
 
-    <a href="{{ path('app_trick_index') }}">back to list</a>
+    <div class="content trick-title">
+        {{ form_row(form.nameTrick) }}
+    </div>
+    <div class="content">
+        {{ form_row(form.groupTrick) }}
+    </div>
+    <div class="content">
+        {{ form_row(form.description) }}
+    </div>
+    <div class="content">
+        {{ form_row(form.mainPhoto) }}
+        <img src="{{ asset(uploads_dir ~ trick.mainPhoto) }}" class="img-thumbnail" alt="">
+        {{ form_row(form.removePhoto) }}
+    </div>
+
+
+    <div class="content trick-gallery" {{ stimulus_controller('form-collection') }}
+         data-form-collection-index-value="{{ form.photoTricks|length > 0 ? form.photoTricks|last.vars.name + 1 : 0 }}"
+         data-form-collection-prototype-value="{{ form_widget(form.photoTricks.vars.prototype)|e('html_attr') }}"
+    >
+        <ul {{ stimulus_target('form-collection', 'collectionContainer') }}>
+            <h3>Photos</h3>
+            {% for photo in form.photoTricks %}
+                <li>
+
+                    {{ form_row(photo.photo) }}
+                    {{ form_row(photo.removePhoto) }}
+
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="button" {{ stimulus_action('form-collection', 'addCollectionElement') }}>
+            Ajouter une photo
+        </button>
+    </div>
+
+    <div class="content trick-videos" {{ stimulus_controller('form-collection') }}
+         data-form-collection-index-value="{{ form.videoTricks|length > 0 ? form.videoTricks|last.vars.name + 1 : 0 }}"
+         data-form-collection-prototype-value="{{ form_widget(form.videoTricks.vars.prototype)|e('html_attr') }}"
+    >
+        <ul {{ stimulus_target('form-collection', 'collectionContainer') }}>
+            <h3>Videos</h3>
+            {% for video in form.videoTricks %}
+                <li>
+                    {{ form_row(video.video) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="button" {{ stimulus_action('form-collection', 'addCollectionElement') }}>
+            Ajouter une vidéo
+        </button>
+    </div>
+
+
+
+{#  {% if trick is defined %}
+        <img src="{{ asset('uploads/' ~ trick.mainPhoto) }}" alt="your image"/>
+    {% else %}
+
+        {{ form_row(form.mainPhoto) }}
+        <img id="blah" src="http://placehold.it/300" alt="your image"/>
+    {% endif %}
+#}
+
+    <button class="btn" type="submit">Modifier</button>
+
+
+    {{ form_end(form) }}
+
+    <a class="btn" href="{{ path('app_trick_index') }}">back to list</a>
 
     {{ include('trick/_delete_form.html.twig') }}
 {% endblock %}

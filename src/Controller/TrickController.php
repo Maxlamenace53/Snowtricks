@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\PhotoTrick;
 use App\Entity\Trick;
 use App\Form\CommentType;
 use App\Form\TrickType;
 use App\Repository\CommentRepository;
 use App\Repository\PhotoTrickRepository;
 use App\Repository\TrickRepository;
+use App\Repository\VideoTrickRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Entity;
@@ -41,6 +43,10 @@ class TrickController extends AbstractController
 
         $trick->setUser($this->getUser() );
 
+
+        $photoTrick = new PhotoTrick();
+        $photoTrick->setTrick($trick)->setUser($this->getUser());
+
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($form->get('photoTricks')->all() as $key => $photoForm) {
                 /** @var UploadedFile $image */
@@ -48,6 +54,7 @@ class TrickController extends AbstractController
                 if ($image) {
                     $fileName = $fileUploader->upload($image);
                     $trick->getPhotoTricks()->get($key)->setPhoto($fileName);
+                    $trick->getPhotoTricks()->get($key)->setUser($this->getUser());
                 }
             }
 
@@ -55,6 +62,7 @@ class TrickController extends AbstractController
                 $video = $videoForm->get('video')->getData();
                 if ($video) {
                     $trick->getVideoTricks()->get($key)->setVideo($video);
+                    $trick->getVideoTricks()->get($key)->setUser($this->getUser());
                 }
             }
                 $mainPhoto =$form->get('mainPhoto')->getData();
@@ -78,7 +86,7 @@ class TrickController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'app_trick_show', methods: ['GET', 'POST'])]
-    public function show( EntityManagerInterface $manager ,Request $request,Trick $trick, CommentRepository $commentRepository, PaginatorInterface $paginator): Response
+    public function show( EntityManagerInterface $manager ,Request $request,Trick $trick, CommentRepository $commentRepository, PaginatorInterface $paginator, PhotoTrick $photoTrick): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -86,6 +94,9 @@ class TrickController extends AbstractController
 
         $comment->setUser($this->getUser() );
         $comment->setTrick($trick);
+
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             //dd($comment);
@@ -103,7 +114,7 @@ class TrickController extends AbstractController
 
         $pagination = $paginator->paginate(
             $query,
-            $request->query->getInt('page', 2), /*Nombre de page*/
+            $request->query->getInt('page', 1), /*Nombre de page*/
             10 /*Limite par page*/
         );
 
@@ -116,11 +127,17 @@ class TrickController extends AbstractController
     }
 
     #[Route('/{slug}/edit', name: 'app_trick_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, FileUploader $fileUploader, PhotoTrickRepository $photoTrickRepository): Response
+    public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, FileUploader $fileUploader, PhotoTrickRepository $photoTrickRepository, VideoTrickRepository $videoTrickRepository): Response
     {
         $form = $this->createForm(TrickType::class, $trick);
         $form->handleRequest($request);
         $photoTrick = $photoTrickRepository->findOneBy(['trick' => $trick->getId()]);
+
+
+
+
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -129,9 +146,18 @@ class TrickController extends AbstractController
             if ($image) {
                 $fileName = $fileUploader->upload($image);
                 $photoTrick->setPhoto($fileName);
-            } else if ($form->get('removeImage')->getData()) {
+            } else if ($form->get('removePhoto')->getData()) {
                 unlink($this->getParameter('uploads_path') . '/' . $photoTrick->getPhoto());
                 $photoTrick->setPhoto(null);
+            }
+
+            $mainPhoto = $form->get('mainPhoto')->getData();
+            if ($mainPhoto){
+                $fileName = $fileUploader->upload($mainPhoto);
+                $trick->setMainPhoto($fileName);
+            }else if ($form->get('removeMainPhoto')->getData()){
+                unlink($this->getParameter('uploads_path').'/'.$trick->getMainPhoto());
+                $trick->setMainPhoto(null);
             }
 
 

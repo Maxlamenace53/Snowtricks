@@ -20,9 +20,10 @@ class PhotoTrickType extends AbstractType
             ->add('photo', FileType::class,[
                 'data_class' => null
             ])
-            ->add('dateAdded')
-            ->add('trick')
-            ->add('user');
+            ->add('removePhoto', CheckboxType::class, [
+                'required' => false,
+                'mapped' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PhotoTrickRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PhotoTrickRepository::class)]
 class PhotoTrick
@@ -18,6 +19,7 @@ class PhotoTrick
     private ?string $photo = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeImmutable $dateAdded = null;
 
 

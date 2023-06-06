@@ -10,6 +10,7 @@ use http\Env\Request;
 use http\Env\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,11 +25,18 @@ class TrickType extends AbstractType
     {
         $builder
             ->add('nameTrick', TextType::class)
-            ->add('description', CKEditorType::class)
+            ->add('description', CKEditorType::class,[
+                'required'=>true
+            ])
             ->add('mainPhoto', FileType::class,[
                 'data_class' => null,
-                'attr'=>['onchange'=>'readURL(this);']
-
+                'attr'=>['onchange'=>'readURL(this);', 'accept'=>'image/*'],
+                'required' => false,
+                'mapped' => false,
+            ])
+            ->add('removePhoto', CheckboxType::class, [
+                'required' => false,
+                'mapped' => false
             ])
           /*  ->add('creationDate')
             ->add('user', EntityType::class, [
