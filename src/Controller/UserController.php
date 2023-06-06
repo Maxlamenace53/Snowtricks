@@ -16,13 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/user')]
 class UserController extends AbstractController
 {
-    #[Route('/', name: 'app_user_index', methods: ['GET'])]
+    /*#[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
-    }
+    }*/
  /*   #[Route('/trick', name: 'app_user_trick_index', methods: ['GET'])]
     public function TrickController(TrickRepository $trickRepository ): Response
     {
@@ -34,7 +34,7 @@ class UserController extends AbstractController
 
 
 
-    #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
+  /*  #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, FileUploader $fileUploader): Response
     {
         $user = new User();
@@ -52,7 +52,7 @@ class UserController extends AbstractController
             'user' => $user,
             'form' => $form,
         ]);
-    }
+    }*/
 
     #[Route('/{slug}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user ): Response
