@@ -18,7 +18,7 @@
     </div>
     <div class="content">
         {{ form_row(form.mainPhoto) }}
-        <img src="{{ asset(uploads_dir ~ trick.mainPhoto) }}" class="img-thumbnail" alt="">
+        <img src="{{ asset(uploads_dir ~ trick.mainPhoto) }}" class="img-thumbnail" alt="photo_principal_de_{{ trick.nameTrick }}">
         {{ form_row(form.removePhoto) }}
     </div>
 

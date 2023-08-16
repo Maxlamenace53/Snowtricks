@@ -24,7 +24,7 @@
 
 
         {{ form_row(form.mainPhoto) }}
-        <img id="blah" src="http://placehold.it/300" alt="your image"/>
+        <img id="blah" src="http://placehold.it/300" alt="image_default"/>
 
 
 
@@ -53,7 +53,7 @@
      data-form-collection-prototype-value="{{ form_widget(form.videoTricks.vars.prototype)|e('html_attr') }}"
 >
     <ul {{ stimulus_target('form-collection', 'collectionContainer') }}>
-        <h3>Videos</h3>
+        <h3>Vidéos</h3>
         {% for video in form.videoTricks %}
             <li>
                 {{ form_row(video.video) }}

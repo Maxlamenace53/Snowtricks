@@ -24,7 +24,7 @@
                 </g>
             </g>
         </svg>
-        <h1 class="card__title">Groups de tricks</h1>
+        <h1 class="card__title content">Groupes de tricks</h1>
     </div>
     {% for group in groups %}
         <div class="article__content--groups">
@@ -36,7 +36,7 @@
             </a>
             <div class="content article__gallery--groups">
                 {% for trick in group.tricks %}
-                    <a href="{{ path('app_trick_show', {'slug':trick.slug}) }}"><img class="article__gallery__photo--groups"
+                    <a class="article__gallery__photo--groups" href="{{ path('app_trick_show', {'slug':trick.slug}) }}"><img
                                                                                  src="{{ uploads_dir ~ trick.mainPhoto }}"
                                                                                  alt=""></a>
                 {% endfor %}

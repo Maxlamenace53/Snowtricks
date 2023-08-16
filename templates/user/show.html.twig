@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="container" >
-    <h1 class="content">Hey {{ app.user.nickname }} Voila ton espace rien qu'à toi !</h1>
+    <h1 class="content">Hey {{ app.user.nickname }} Voilà ton espace rien qu'à toi !</h1>
 
     <table class="table">
         <tbody>
@@ -44,6 +44,6 @@
 
 
 
-    <a class="btn" href="{{ path('app_user_edit', {'slug': user.slug}) }}">Modifié son profil</a>
+    <a class="btn" href="{{ path('app_user_edit', {'slug': user.slug}) }}">Modifier son profil</a>
 </div>
 {% endblock %}

@@ -6,20 +6,20 @@
     <h1>Modifié les paramètres utilisateurs</h1>
     {{ form_start(form) }}
     {{ form_row(form.avatar) }}
-    <img src="{{ asset(uploads_dir ~ user.avatar) }}" class="img-thumbnail" alt="">
+    <img src="{{ asset(uploads_dir ~ user.avatar) }}" class="img-thumbnail" alt="Avatar de {{ user.nickname }}">
     {{ form_row(form.removeAvatar) }}
     <button class="btn" type="submit">Modifier</button>
     {{ form_end(form) }}
 
 {# {{ include('user/_form.html.twig', {'button_label': 'Update'}) }} #}
-    <p>Trick crée :</p>
+    <p>Trick créé :</p>
 
     {% for trick in user.tricks  %}
 
         <li> {{ trick.nameTrick }} dans le groupe {{ trick.groupTrick.name }}</li>
     {% endfor %}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+
 
     <p>Commentaire crée :</p>
     {% for comment in user.comments %}

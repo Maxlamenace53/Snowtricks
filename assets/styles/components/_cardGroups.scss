@@ -8,7 +8,7 @@
   justify-content: space-around;
 
 }
-
+//groupe ligne entière
 .article__content--groups {
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -42,19 +42,23 @@
 }
 
 .article__gallery--groups{
-  display: flex;
   overflow : scroll;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
   background-color: #00BAF0;
   height: 160px;
-  width: 400px;
+
+  img{
+    display: inline;
+    flex-direction: row;
+    height: 150px;
+  }
 }
 
 .article__gallery__photo--groups {
   height: 140px;
 }
+
+
+
 
 
 @media screen and (max-width: variables.$breakpoint-desktop) {

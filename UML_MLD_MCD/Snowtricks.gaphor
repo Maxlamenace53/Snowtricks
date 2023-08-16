@@ -7498,9 +7498,9 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="bf99368b-f97b-11ed-addd-3d8e72c92889"/>
 <ref refid="ffbe9669-f97b-11ed-8cc1-3d8e72c92889"/>
 <ref refid="6e7213bf-d541-11ed-8ea3-e560b7793dba"/>
+<ref refid="7202a940-d541-11ed-9aef-e560b7793dba"/>
 <ref refid="554dc09e-d541-11ed-9ab1-e560b7793dba"/>
 <ref refid="de8c36f0-d57a-11ed-8a8a-e98464260e53"/>
-<ref refid="7202a940-d541-11ed-9aef-e560b7793dba"/>
 </reflist>
 </ownedAttribute>
 <ownedOperation>
@@ -8197,10 +8197,10 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 921.5028686523438, 433.1995741821879)</val>
 </matrix>
 <top-left>
-<val>(0.0, 0.0)</val>
+<val>(3.5038560333838404, 0.0)</val>
 </top-left>
 <width>
-<val>131.0</val>
+<val>127.49614396661616</val>
 </width>
 <height>
 <val>108.0</val>
@@ -8257,10 +8257,10 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="de8c36f0-d57a-11ed-8a8a-e98464260e53"/>
 </tail_subject>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 690.3090114907005, 301.9724371505795)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 689.8912909825661, 301.9724371505794)</val>
 </matrix>
 <points>
-<val>[(-8.650031148440348, 10.66020772072352), (239.2828850739171, 131.22713703160844)]</val>
+<val>[(-8.232310640305968, 10.66020772072352), (242.9881044455526, 131.22713703160844)]</val>
 </points>
 <head-connection>
 <ref refid="351b295f-d53d-11ed-8cfe-e560b7793dba"/>
@@ -8370,26 +8370,26 @@ existing classes or even new classes with specific responsibilities.</val>
 <class_>
 <ref refid="351ab39d-d53d-11ed-ab28-e560b7793dba"/>
 </class_>
-<lowerValue>
-<val>0</val>
-</lowerValue>
-<lowerValue>
-<val>0</val>
-</lowerValue>
 <type>
 <ref refid="afb87df7-d57a-11ed-834e-e98464260e53"/>
 </type>
 <upperValue>
-<val>*</val>
+<val>1</val>
 </upperValue>
 <upperValue>
-<val>*</val>
+<val>1</val>
 </upperValue>
 </Property>
 <Property id="de8bc7d3-d57a-11ed-9b2e-e98464260e53">
 <association>
 <ref refid="de8b269d-d57a-11ed-9ccc-e98464260e53"/>
 </association>
+<lowerValue>
+<val>0</val>
+</lowerValue>
+<lowerValue>
+<val>0</val>
+</lowerValue>
 <owningAssociation>
 <ref refid="de8b269d-d57a-11ed-9ccc-e98464260e53"/>
 </owningAssociation>
@@ -8397,10 +8397,10 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="351ab39d-d53d-11ed-ab28-e560b7793dba"/>
 </type>
 <upperValue>
-<val>1</val>
+<val>*</val>
 </upperValue>
 <upperValue>
-<val>1</val>
+<val>*</val>
 </upperValue>
 </Property>
 <Property id="38d568c6-d57f-11ed-9635-e98464260e53">
